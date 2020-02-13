@@ -2,7 +2,6 @@ const Discord = require('discord.js');
 const { prefix, token } = require('./config.json')
 const client = new Discord.Client();
 var fs = require('fs');
-var userData = JSON.parse(fs.readFileSync('./userdata.json', 'utf8'));
 
 
 client.on('ready', () => {
