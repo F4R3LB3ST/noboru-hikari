@@ -10,7 +10,6 @@ client.on('ready', () => {
 client.on('message', message => {
   var sender = message.author
 
-  if (message.content === prefix)
   if (message.content === prefix + 'hi') {
     message.channel.send('kontol');
   }
