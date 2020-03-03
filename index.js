@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const prefix = "Noboru, ";
+const prefix = process.env.prefix;
 var fs = require('fs');
 
 
@@ -12,7 +12,7 @@ client.on('message', message => {
   var sender = message.author
 
   if (message.content == prefix + 'hi') {
-    message.channel.send("kontol");
+    message.channel.send("Hi " + sender);
   }
 });
 
