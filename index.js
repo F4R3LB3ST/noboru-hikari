@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const prefix = 'Noboru, ';
+const prefix = process.env.prefix;
 var fs = require('fs');
 var dict = JSON.parse('dict.json');
 
