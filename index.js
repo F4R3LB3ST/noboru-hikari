@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const prefix = 'Noboru, ';
 var fs = require('fs');
-var greet = "";
+var dict = JSON.parse('dict.json');
 
 
 client.on('ready', () => {
@@ -14,6 +14,7 @@ client.on('message', message => {
 
   if (message.content === prefix + 'hi') {
     greet = JSON.parse('dict.json')
+    greet
     message.channel.send('Hi' + sender);
   }
 });
