@@ -13,7 +13,7 @@ client.on('message', message => {
 
   if (message.content == prefix + 'hi') {
     message.channel.send("Hi " + sender);
-    message.channel.send("This message was sent at " + message.createdTimestamp);
+    message.channel.send("This message was sent at " + message.createdAt);
   }
 });
 
