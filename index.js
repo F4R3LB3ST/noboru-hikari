@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const prefix = process.env.pref;
-const userData = 
+const userData = process.env("userdata.json");
 var fs = require('fs');
 var dict = JSON.parse('dict.json');
 
@@ -12,7 +12,9 @@ client.on('ready', () => {
 
 client.on('message', message => {
   var sender = message.author
-  for (var i = 0;i <= userdata)
+  for (var i = 0;i <= userData;i++) {
+    
+  }
 
   if (message.content === prefix + 'hi') {
     message.channel.send('Hi' + sender);
