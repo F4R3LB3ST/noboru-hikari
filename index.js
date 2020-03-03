@@ -12,7 +12,7 @@ client.on('message', message => {
   var sender = message.author
 
   if (message.content == prefix + 'hi') {
-    message.channel.send('Hi' + sender);
+    message.channel.send("kontol");
   }
 });
 
