@@ -3,6 +3,7 @@ const client = new Discord.Client();
 const prefix = process.env.prefix;
 const prefixbot = process.env.prefixbot;
 var fs = require('fs');
+const dict = ["hi","hello","heyo"]
 
 
 client.on('ready', () => {
@@ -13,11 +14,13 @@ client.on('message', message => {
   var sender = message.author;
 
   if (message.content.startsWith(prefix)) {
-    if (message.content.contain("hi")) {
-    message.channel.send("Hi " + sender);
-    message.channel.send("This message was sent at " + message.createdAt.toString());
-  };
-};
+    for (var i = 0; i < dict.length; i++) {
+      if (message.content.includes(dict[i])) {
+        message.channel.send("Hi " + sender);
+        message.channel.send("This message was sent at " + message.createdAt.toString());
+        break;
+      };
+    };
 });
 
 client.on('guildMemberAdd', member => {
