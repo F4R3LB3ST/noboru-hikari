@@ -13,11 +13,11 @@ client.on('message', message => {
   var sender = message.author;
 
   if (message.content.startsWith(prefix)) {
-    if message.content.contain(prefix + "hi") {
+    if (message.content.contains("hi")) {
     message.channel.send("Hi " + sender);
     message.channel.send("This message was sent at " + message.createdAt.toString());
-  }
-  }
+  };
+};
 });
 
 client.on('guildMemberAdd', member => {
