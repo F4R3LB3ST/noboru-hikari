@@ -21,6 +21,7 @@ client.on('message', message => {
         break;
       };
     };
+  };
 });
 
 client.on('guildMemberAdd', member => {
