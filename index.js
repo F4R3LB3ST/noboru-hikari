@@ -13,7 +13,7 @@ client.on('message', message => {
   var sender = message.author;
 
   if (message.content.startsWith(prefix)) {
-    if message.content.contains("hi") {
+    if message.content.contain("hi") {
     message.channel.send("Hi " + sender);
     message.channel.send("This message was sent at " + message.createdAt.toString());
   }
