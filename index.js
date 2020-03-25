@@ -23,7 +23,7 @@ client.on('message', message => {
     } else {
         if (message.content.includes("nigga")) {
           message.delete()
-          message.channel.send("fixed :white_check_mark:/nNi:b::b:a is better")
+          message.channel.send("fixed :white_check_mark:\nNi:b::b:a is better")
       };
     };
 });
