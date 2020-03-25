@@ -20,8 +20,7 @@ client.on('message', message => {
           break;
         };
       };
-    };
-} else if (message.content.startsWith(prefixbot)) {
+    } else if (message.content.startsWith(prefixbot)) {
   for (var i = 0; i <= greet.length; i++) {
     if (message.content.includes("random") {
         message.channel.send(math.random().1000);
