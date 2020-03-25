@@ -20,9 +20,10 @@ client.on('message', message => {
       for (var j = 0; j <= greet.length; i++) {
         var msgSpT = msgSp[i].toString()
         var greetT = greet[j].toString()
-        if (msgSpT[i].equals(greetT[j]))
+        if (msgSpT[i].equals(greetT)) {
         message.channel.send("Hi " + sender);
         break;
+      };
       };
     };
   };
