@@ -15,13 +15,14 @@ client.on('message', message => {
 
   if (message.content.startsWith(prefix)) {
     var msgSp = message.content.split(" ");
+    var alreadySent = false;
     for (var i = 0; i <= msgSp.length; i++) {
       console.log("i =" + i)
       console.log("msgSp = " + msgSp)
       for (var j = 0; j <= greet.length; j++) {
         if (msgSp.includes(greet[j])) {
-          break;
         message.channel.send("Hi " + sender);
+        alreadySent = true;
         break;
       };
       };
