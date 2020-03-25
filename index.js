@@ -22,9 +22,9 @@ client.on('message', message => {
       };
     } else {
         if (message.content.includes("nigga")) {
+          message.channel.send("fixed :white_check_mark:")
           .then((message) => {
           message.edit("ni:b::b:a");
-          message.channel.send("fixed :white_check_mark:")
         });
       };
     };
