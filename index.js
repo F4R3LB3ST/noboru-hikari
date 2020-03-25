@@ -20,10 +20,10 @@ client.on('message', message => {
           break;
         };
       };
-    } else if (message.content.startsWith(prefixbot)) {
-        if (message.content.includes("random")) {
-          var x = math.random()*1000
-          message.channel.send(x);
+    } else {
+        if (message.content.includes("nigga")) {
+          message.edit("ni:b::b:a","nigga")
+          message.channel.send("fixed :white_check_mark:")
       };
     };
 });
