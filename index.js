@@ -22,7 +22,8 @@ client.on('message', message => {
       };
     } else if (message.content.startsWith(prefixbot)) {
         if (message.content.includes("random")) {
-          message.channel.send(math.random()*1000);
+          var x = math.random()*1000
+          message.channel.send(x);
       };
     };
 });
