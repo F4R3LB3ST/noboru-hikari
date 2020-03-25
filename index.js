@@ -16,9 +16,10 @@ client.on('message', message => {
   if (message.content.startsWith(prefix)) {
     var msgSp = message.content.split(" ");
     for (var i = 0; i <= msgSp.length; i++) {
-      console.log(i)
-      console.log(msgSp)
+      console.log("i =" + i)
+      console.log("msgSp = " + msgSp)
       for (var j = 0; j <= greet.length; i++) {
+        console.log("greet = " + greet[j]);
         if (msgSp[i] == greet[j]) {
         message.channel.send("Hi " + sender);
         break;
