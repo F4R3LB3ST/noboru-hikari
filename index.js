@@ -19,7 +19,7 @@ client.on('message', message => {
       console.log("i =" + i)
       console.log("msgSp = " + msgSp)
       for (var j = 0; j <= greet.length; j++) {
-        if (msgSp[i] == greet[j] {
+        if (msgSp[i] == greet[j]) {
         message.channel.send("Hi " + sender);
         break;
       };
