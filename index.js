@@ -21,7 +21,7 @@ client.on('message', message => {
       console.log("msgSp = " + msgSp);
       console.log(msgSp[i]);
       for (var j = 0; j <= greet.length; j++) {
-        if (msgSp == greet[j]) {
+        if (message.content.endsWith(greet[j])) {
           message.channel.send("Hi " + sender);
           alreadySent = true;
           break;
