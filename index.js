@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const prefix = process.env.prefix;
 const prefixbot = process.env.prefixbot;
 var fs = require('fs');
-const greet = process.env.greet;
+const greet = ["hi","hello","heyo","halo","hey","heya"]
 
 
 client.on('ready', () => {
