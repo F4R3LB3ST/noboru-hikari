@@ -23,7 +23,7 @@ client.on('message', message => {
         var greetT = greet[j].toString()
         console.log(msgSpT)
         console.log(greetT)
-        if (msgSpT.equals(greetT)) {
+        if (msgSpT == greetT) {
         message.channel.send("Hi " + sender);
         break;
       };
