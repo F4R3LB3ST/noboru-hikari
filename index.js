@@ -20,13 +20,10 @@ client.on('message', message => {
           break;
         };
       };
-    } else {
-        if (message.content.includes("nigga")) {
-          message.editable
-          .then((message) => {
-          message.edit("ni:b::b:a");
-        });
-      };
+    } else if (message.content.startsWith(prefixbot)) {
+      if (message.content.includes("help")) {
+        message.channel.send("'''n-ping ->  pong!\nn-help ->  command list'''")
+      }
     };
 });
 
