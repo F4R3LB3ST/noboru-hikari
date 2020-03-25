@@ -19,11 +19,7 @@ client.on('message', message => {
       console.log(i)
       console.log(msgSp)
       for (var j = 0; j <= greet.length; i++) {
-        var msgSpT = msgSp[i].toString()
-        var greetT = greet[j].toString()
-        console.log(msgSpT)
-        console.log(greetT)
-        if (msgSpT == greetT) {
+        if (msgSp[i] == greet[j]) {
         message.channel.send("Hi " + sender);
         break;
       };
