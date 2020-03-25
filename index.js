@@ -22,8 +22,8 @@ client.on('message', message => {
       };
     } else {
         if (message.content.includes("nigga")) {
-          message.edit("ni:b::b:a")
-          message.channel.send("fixed :white_check_mark:"")
+          message.edit("ni:b::b:a");
+          message.channel.send("fixed :white_check_mark:"");
       };
     };
 });
