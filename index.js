@@ -21,13 +21,11 @@ client.on('message', message => {
         };
       };
     } else if (message.content.startsWith(prefixbot)) {
-  for (var i = 0; i <= greet.length; i++) {
-    if (message.content.includes("random") {
-        message.channel.send(math.random().1000);
-        break;
+        if (message.content.includes("random")) {
+          message.channel.send(math.random().1000);
+          break;
       };
     };
-  };
 });
 
 client.on('guildMemberAdd', member => {
