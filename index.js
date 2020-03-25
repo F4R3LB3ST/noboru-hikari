@@ -14,16 +14,21 @@ client.on('message', message => {
   var sender = message.author;
 
   if (message.content.startsWith(prefix)) {
-    var msgSp = message.content.split(" ");
-    var alreadySent = false;
-    for (var j = 0; j <= greet.length; j++) {
-      if (message.content.includes(greet[j])) {
-          message.channel.send("Hi " + sender);
-          alreadySent = true;
+    for (var i = 0; i <= greet.length; i++) {
+      if (message.content.includes(greet[i])) {
+          message.channel.send(greet[i] + sender);
           break;
         };
       };
     };
+} else if (message.content.startsWith(prefixbot)) {
+  for (var i = 0; i <= greet.length; i++) {
+    if (message.content.includes("random") {
+        message.channel.send(math.random().1000);
+        break;
+      };
+    };
+  };
 });
 
 client.on('guildMemberAdd', member => {
