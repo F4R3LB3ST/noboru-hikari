@@ -17,14 +17,15 @@ client.on('message', message => {
     var msgSp = message.content.split(" ");
     var alreadySent = false;
     for (var i = 0; i <= msgSp.length; i++) {
-      console.log("i =" + i)
-      console.log("msgSp = " + msgSp)
+      console.log("i =" + i);
+      console.log("msgSp = " + msgSp);
+      console.log(msgSp[i]);
       for (var j = 0; j <= greet.length; j++) {
         if (msgSp.includes(greet[j])) {
-        message.channel.send("Hi " + sender);
-        alreadySent = true;
-        break;
-      };
+          message.channel.send("Hi " + sender);
+          alreadySent = true;
+          break;
+        };
       };
     };
   };
