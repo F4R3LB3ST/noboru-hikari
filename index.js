@@ -14,11 +14,12 @@ client.on('message', message => {
   var sender = message.author;
 
   if (message.content.startsWith(prefix)) {
-    for (var i = 0; i < greet.length; i++) {
+    var msgSp = message.content.split(" ");
+    for (var i = 0; i <= msgSp.length; i++) {
       console.log(i)
-      if (message.content.includes(greet[i])) {
+      for (var j = 0; j <= greet.length; i++) {
+        if (msgSp[i].equals(greet[j]))
         message.channel.send("Hi " + sender);
-        message.channel.send("This message was sent at " + message.createdAt.toString());
         break;
       };
     };
