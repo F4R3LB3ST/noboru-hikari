@@ -26,6 +26,8 @@ client.on('message', message => {
           alreadySent = true;
           break;
         };
+        console.log(greet);
+        console.log(greet[j]);
       };
     };
   };
