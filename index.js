@@ -19,7 +19,7 @@ client.on('message', message => {
       if (msg.includes(greet[i])) {
           var greetSplit = greet[i].split();
           var result = "";
-          var startword = greet.charAt().toUpperCase();
+          var startword = greet[i].charAt().toUpperCase();
           greetSplit.shift();
           greetSplit.unshift(startword);
           result = greetSplit.join();
