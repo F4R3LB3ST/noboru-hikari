@@ -30,7 +30,7 @@ client.on('message', message => {
     } else if (msg.startsWith(prefixbot)) {
       if (msg.includes("help")) {
         message.channel.send("```n-ping ->  pong!\nn-help ->  command list\nn-CoV ->  no, just no.```")
-      } else if (msg.includes(ping)) {
+      } else if (msg.includes("ping")) {
         message.channel.send("pong!")
       } else if (msg.includes("cov")) {
         message.channel.send("instead of making jokes about the SARS-2, why you guys not donate to the charity to help the healthcare")
