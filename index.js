@@ -21,7 +21,7 @@ client.on('message', message => {
           var result = "";
           startword[0] = startword[0].toUpperCase();
           for (word of startword) {
-            var result += word
+            var result =+ word
             return result;
           };
           message.channel.send(result + " " + sender);
