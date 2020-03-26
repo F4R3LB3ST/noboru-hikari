@@ -23,7 +23,7 @@ client.on('message', message => {
           var startword = greet[i].charAt().toUpperCase();
           var lastword = greet[i].slice(1,greet[i].length);
           var result = startword.concat(lastword);
-          message.channel.send(result + " " + sender);
+          message.channel.send(result + ", " + sender);
           break;
         };
       };
