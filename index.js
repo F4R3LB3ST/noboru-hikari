@@ -20,12 +20,7 @@ client.on('message', message => {
           var greetSplit = greet[i].split();
           var result = "";
           var startword = greet[i].charAt().toUpperCase();
-          greetSplit.shift();
-          console.log(greetSplit);
-          greetSplit.unshift(startword);
-          console.log(greetSplit);
-          result = greetSplit.join();
-          console.log(result);
+          greet[i] = greet[i].replace(0,startword)
           message.channel.send(result + " " + sender);
           break;
         };
