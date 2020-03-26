@@ -17,13 +17,13 @@ client.on('message', message => {
   if (msg.startsWith(prefix)) {
     for (var i = 0; i <= greet.length; i++) {
       if (msg.includes(greet[i])) {
-          var startword = greet[i].split();
+          var greetSplit = greet[i].split();
           var result = "";
-          startword1 = startword[0].toUpperCase();
-          startword[0] = startword1
-          for (word of startword) {
-            var result = result + word
-          };
+          var startword = greet.charAt().toUpperCase();
+          greetSplit.shift();
+          greetSplit.unshift(startword);
+          result = greetSplit.join();
+          console.log(result);
           message.channel.send(result + " " + sender);
           break;
         };
