@@ -27,8 +27,7 @@ client.on('message', message => {
           break;
         };
       };
-      var grammarscan = msg.split();
-      if (grammarscan.includes("your") && grammarscan.includes("name")) {
+      if (msg.includes("your") && msg.includes("name")) {
           message.channel.send("My Name is Noboru Hikari")
       }
     } else if (msg.startsWith(prefixbot)) {
