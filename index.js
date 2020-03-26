@@ -12,17 +12,25 @@ client.on('ready', () => {
 
 client.on('message', message => {
   var sender = message.author;
+  var msg = message.content.toLowerCase();
 
-  if (message.content.startsWith(prefix)) {
+  if (msg.startsWith(prefix)) {
     for (var i = 0; i <= greet.length; i++) {
-      if (message.content.includes(greet[i])) {
-          message.channel.send(greet[i] + sender);
+      if (msg.includes(greet[i])) {
+          var startword = greet[i].split();
+          var result = "";
+          startword[0] = startword[0].toUpperCase();
+          for (word of startword) {
+            var result  += word
+            return result;
+          }
+          message.channel.send(result + " " + sender);
           break;
         };
       };
-    } else if (message.content.startsWith(prefixbot)) {
-      if (message.content.includes("help")) {
-        message.channel.send("'''n-ping ->  pong!\nn-help ->  command list'''")
+    } else if (msg.startsWith(prefixbot)) {
+      if (msg.includes("help")) {
+        message.channel.send("```n-ping ->  pong!\nn-help ->  command list\nn-CoV ->  no, just no.```")
       }
     };
 });
