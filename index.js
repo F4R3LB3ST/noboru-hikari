@@ -11,7 +11,7 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-  var sender = message.author;
+  var sender = message.author.username;
   var msg = message.content.toLowerCase();
 
   if (msg.startsWith(prefix)) {
@@ -21,7 +21,7 @@ client.on('message', message => {
           var result = "";
           startword[0] = startword[0].toUpperCase();
           for (word of startword) {
-            var result = result + word
+            var result =+ word
           };
           message.channel.send(result + " " + sender);
           break;
