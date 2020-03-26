@@ -19,7 +19,6 @@ client.on('message', message => {
       if (msg.includes(greet[i])) {
           var startword = greet[i].charAt().toUpperCase();
           greet[i] = greet[i].slice(0,1);
-          greet[i] = greet[i].unshift(startword);
           var result = startword.concat(greet[i]);
           message.channel.send(result + " " + sender);
           break;
