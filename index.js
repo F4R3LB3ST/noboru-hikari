@@ -27,14 +27,18 @@ client.on('message', message => {
           break;
         };
       };
+      var grammarscan = msg.split();
+      if (grammarscan.includes("your") && grammarscan.includes("name")) {
+          message.channel.send("My Name is Noboru Hikari")
+      }
     } else if (msg.startsWith(prefixbot)) {
-      if (msg.includes("help")) {
+      if (msg.includes("help")) { //check if it has "help" in it
         message.channel.send("```n-ping ->  pong!\nn-help ->  command list\nn-CoV ->  no, just no.```")
       } else if (msg.includes("ping")) {
         message.channel.send("pong!")
       } else if (msg.includes("cov")) {
         message.channel.send("instead of making jokes about SARS-2, why you guys not donate to the charity to help the healthcare")
-        message.channel.send("https://www.globalgiving.org/projects/coronavirus-relief-fund/")
+        message.channel.send("https://www.globalgiving.org/projects/coronavirus-relief-fund/")//link to the charity
       }
     };
 });
