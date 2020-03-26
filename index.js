@@ -17,8 +17,6 @@ client.on('message', message => {
   if (msg.startsWith(prefix)) {
     for (var i = 0; i <= greet.length; i++) {
       if (msg.includes(greet[i])) {
-          var greetSplit = greet[i].split();
-          var result = "";
           var startword = greet[i].charAt().toUpperCase();
           greet[i] = greet[i].replace(0,startword);
           message.channel.send(result + " " + sender);
