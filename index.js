@@ -35,7 +35,7 @@ client.on('message', message => {
       } else if (msg.includes("cov")) {
         message.channel.send("instead of making jokes about the SARS-2, why you guys not donate to the charity to help the healthcare")
         .then((msg) => {
-          .setTimeout(function(){
+          setTimeout(function(){
             .edit("DONATE NOW!")
           }, 1000)
           .send("https://www.globalgiving.org/projects/coronavirus-relief-fund/")
