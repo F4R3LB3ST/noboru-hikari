@@ -19,9 +19,9 @@ client.on('message', message => {
       if (msg.includes(greet[i])) {
           var startword = greet[i].split();
           var result = "";
-          startword[0] = startword[0].toUpperCase();
+          startword[0].toUpperCase();
           for (word of startword) {
-            var result =+ word
+            var result = result + word
           };
           message.channel.send(result + " " + sender);
           break;
