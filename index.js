@@ -20,7 +20,8 @@ client.on('message', message => {
           var startword = greet[i].charAt().toUpperCase();
           greet[i] = greet[i].slice(0,1);
           greet[i] = greet[i].unshift(startword);
-          message.channel.send(greet[i] + " " + sender);
+          var result = startword.concat(greet[i]);
+          message.channel.send(result + " " + sender);
           break;
         };
       };
