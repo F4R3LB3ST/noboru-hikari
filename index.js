@@ -37,7 +37,7 @@ client.on('message', message => {
         setTimeout(function(){
           .then((msg) => {
           .edit("DONATE NOW")})
-        });
+        }, 1000);
         message.channel.send("https://www.globalgiving.org/projects/coronavirus-relief-fund/")
       }
     };
