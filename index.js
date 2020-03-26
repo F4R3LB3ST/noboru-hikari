@@ -19,7 +19,7 @@ client.on('message', message => {
       if (msg.includes(greet[i])) {
           var startword = greet[i].charAt().toUpperCase();
           greet[i] = greet[i].replace(0,startword);
-          message.channel.send(result + " " + sender);
+          message.channel.send(greet[i] + " " + sender);
           break;
         };
       };
