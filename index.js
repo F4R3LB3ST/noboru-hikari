@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const prefix = process.env.prefix;
 const prefixbot = process.env.prefixbot;
 var fs = require('fs');
-const greet = ["hi","hello","heyo","halo","hey","heya"]
+const greet = ["hi","hello","heyo","halo","hey","heya","ohayo","good morning","good afternoon","good night"]
 
 
 client.on('ready', () => {
@@ -21,7 +21,9 @@ client.on('message', message => {
           var result = "";
           var startword = greet[i].charAt().toUpperCase();
           greetSplit.shift();
+          console.log(greetSplit);
           greetSplit.unshift(startword);
+          console.log(greetSplit);
           result = greetSplit.join();
           console.log(result);
           message.channel.send(result + " " + sender);
