@@ -40,10 +40,11 @@ client.on('message', message => {
         message.channel.send("https://www.globalgiving.org/projects/coronavirus-relief-fund/")
       } else if (msglow.includes("jvd")) {
         var playerdata = msglow.replace("n-jvd","");
-        if (playerdata.includes("/") && playerdata.includes("<")) {
-              player = playerdata.split("/");
+        if (playerdata.includes("/") && playerdata.includes("<") && playerdata.includes(">")) {
+              player = playerdata.mentions.users;
+              console.log(player);
               player1 = player[0].username;
-              player2 = player[1].replace("/","").username;
+              player2 = player[1].username;
               message.channel.send(player2 + ": Kakyoin no yatsu mo, sude ni shimatsu shite yatta so Polnareff wa dokozo ni hison de iru na, hah, do demo ii ga na. Tsugi wa "+ player1 +", kisama da!");
               message.channel.send(player1 + ":	Yarou, " + player2 + "!")
       } else {
