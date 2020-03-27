@@ -39,18 +39,15 @@ client.on('message', message => {
         message.channel.send("instead of making jokes about SARS-2, why you guys not donate to the charity to help the healthcare")
         message.channel.send("https://www.globalgiving.org/projects/coronavirus-relief-fund/")
       } else if (msglow.includes("jvd")) {
-        var player = msglow.split(" ");
-        if (player.length = 2) {
-          var playerdata = player.shift();
-          if (playerdata.includes("/") && playerdata.includes("<")) {
-              playerdata = playerdata.split("/");
-              message.channel.send("good")
-              message.channel.send(playerdata)
-          } else {
-              message.channel.send("mention and separate it with '/', example : 'n-jvd player1/player2'")
+        var playerdata = msglow.replace("n-jvd","");
+        if (playerdata.includes("/") && playerdata.includes("<")) {
+              player = playerdata.split("/");
+              player1 = player[0].username
+              player2 = player[1].replace("/","").username
+              message.channel.send()
+      } else {
+              message.channel.send("mention 2 members and separate it with '/', example : 'n-jvd player1/player2'")
           }
-        } else {
-          message.channel.send("there's no player in the game, try to add 2 member")
         }
       }
     };
