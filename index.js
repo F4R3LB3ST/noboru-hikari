@@ -42,7 +42,7 @@ client.on('message', message => {
         var player = msglow.split(" ");
         if (player.length = 2) {
           var playerdata = player.shift();
-          if playerdata.includes("/") && playerdata.includes("<") {
+          if (playerdata.includes("/") && playerdata.includes("<")) {
               playerdata = playerdata.split("/");
               message.channel.send("good")
               message.channel.send(playerdata)
