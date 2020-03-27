@@ -42,16 +42,15 @@ client.on('message', message => {
         var playerdata = msglow.replace("n-jvd","");
         if (playerdata.includes("/") && playerdata.includes("<")) {
               player = playerdata.split("/");
-              player1 = player[0].username
-              player2 = player[1].replace("/","").username
-              message.channel.send()
+              player1 = player[0].username;
+              player2 = player[1].replace("/","").username;
+              message.channel.send();
       } else {
               message.channel.send("mention 2 members and separate it with '/', example : 'n-jvd player1/player2'")
           }
         }
       }
-    };
-});
+  });
 
 client.on('guildMemberAdd', member => {
   const channel = member.guild.channels.find(ch => ch.name === 'member-log');
