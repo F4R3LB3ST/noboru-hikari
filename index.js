@@ -12,11 +12,11 @@ client.on('ready', () => {
 
 client.on('message', message => {
   var sender = message.author.username;
-  var msg = message.content.toLowerCase();
+  var msglow = message.content.toLowerCase();
 
-  if (msg.startsWith(prefix)) {
+  if (msglow.startsWith(prefix)) {
     for (var i = 0; i <= greet.length; i++) {
-      if (msg.includes(greet[i])) {
+      if (msglow.includes(greet[i])) {
           var startword = "";
           var lastword = "";
           var result = "";
@@ -27,24 +27,32 @@ client.on('message', message => {
           break;
         };
       };
-      if (msg.includes("your") && msg.includes("name")) {
+      if (msglow.includes("your") && msglow.includes("name")) {
           message.channel.send("My Name is Noboru Hikari")
       }
-    } else if (msg.startsWith(prefixbot)) {
-      if (msg.includes("help")) {
+    } else if (msglow.startsWith(prefixbot)) {
+      if (msglow.includes("help")) {
         message.channel.send("```n-ping ->  pong!\nn-help ->  command list\nn-CoV ->  no, just no.```")
-      } else if (msg.includes("ping")) {
+      } else if (msglow.includes("ping")) {
         message.channel.send("pong!")
-      } else if (msg.includes("cov")) {
+      } else if (msglow.includes("cov")) {
         message.channel.send("instead of making jokes about SARS-2, why you guys not donate to the charity to help the healthcare")
+        setTimeout(function(){
+          .then ((message)=>{
+            message.edit("DONATE NOW!")
+          })
+        }, 1000)
         message.channel.send("https://www.globalgiving.org/projects/coronavirus-relief-fund/")
-      } else if (msg.includes("jvd")) {
-        var player = msg.split(" ");
+      } else if (msglow.includes("jvd")) {
+        var player = msglow.split(" ");
         if (player.length = 2) {
           var playerdata = player.shift();
           if playerdata.includes("/") && playerdata.includes("<") {
-            playerdata = playerdata.split("/");
-            //wait. should it be a member of the server ?
+              playerdata = playerdata.split("/");
+              message.channel.send("good")
+              message.channel.send(playerdata)
+          } else {
+              message.channel.send("mention and separate it with '/', example : 'n-jvd player1/player2'")
           }
         } else {
           message.channel.send("there's no player in the game, try to add 2 member")
