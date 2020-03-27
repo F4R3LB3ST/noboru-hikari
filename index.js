@@ -37,9 +37,9 @@ client.on('message', message => {
         message.channel.send("pong!")
       } else if (msglow.includes("cov")) {
         message.channel.send("instead of making jokes about SARS-2, why you guys not donate to the charity to help the healthcare")
-        setTimeout(function(){
-          .then ((message)=>{
-            message.edit("DONATE NOW!")
+        setTimeout(function(msg){
+          .then ((msg)=>{
+            msg.edit("DONATE NOW!")
           })
         }, 1000)
         message.channel.send("https://www.globalgiving.org/projects/coronavirus-relief-fund/")
