@@ -51,8 +51,8 @@ client.on('message', message => {
               message.channel.send(player2 + ": Kakyoin no yatsu mo, sude ni shimatsu shite yatta so Polnareff wa dokozo ni hison de iru na, hah, do demo ii ga na. Tsugi wa "+ player1 +", kisama da!");
               message.channel.send(player1 + ":	Yarou, " + player2 + "!")
       } else {
-              message.channel.send("mention 2 members and separate it with ' | ', example : 'n-jvd Jotaro | Dio'")
-          }*/
+              message.channel.send("mention 2 members and separate it with ' | ', example : 'n-jvd Jotaro | Dio'")*/
+          }
         }
       }
   });
