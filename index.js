@@ -40,13 +40,16 @@ client.on('message', message => {
         message.channel.send("instead of making jokes about SARS-2, why you guys not donate to the charity to help the healthcare")
         message.channel.send("https://www.globalgiving.org/projects/coronavirus-relief-fund/")
       } else if (msglow.includes("jvd")) {
-        var playerdata = msglow.replace("n-jvd","");
+        var playerdata = msglow.replace("n-jvd ","");
         console.log(playerdata);
         if (playerdata.includes(" | ") && playerdata.includes("<") && playerdata.includes(">")) {
+              var definition = playerdata.split(" ");
+              var definition1 = definition[0].replace("<@","").replace(">","");
+              var definition2 = definition[2].replace("<@","").replace(">","");
               player = message.mentions.users;
               console.log(player);
-              player1 = player[0].username;
-              player2 = player[1].username;
+              player1 = player.definition1.username;
+              player2 = player.definition2.username;
               message.channel.send(player2 + ": Kakyoin no yatsu mo, sude ni shimatsu shite yatta so Polnareff wa dokozo ni hison de iru na, hah, do demo ii ga na. Tsugi wa "+ player1 +", kisama da!");
               message.channel.send(player1 + ":	Yarou, " + player2 + "!")
       } else {
