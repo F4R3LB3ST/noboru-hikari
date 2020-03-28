@@ -39,20 +39,20 @@ client.on('message', message => {
       } else if (msglow.includes("cov")) {
         message.channel.send("instead of making jokes about SARS-2, why you guys not donate to the charity to help the healthcare")
         message.channel.send("https://www.globalgiving.org/projects/coronavirus-relief-fund/")
-      } else if (msglow.includes("jvd")) {
+      } /*else if (msglow.includes("jvd")) {
         var playerdata = msglow.replace("n-jvd ","");
         console.log(playerdata);
         if (playerdata.includes(" | ") && playerdata.includes("<") && playerdata.includes(">")) {
               player = message.mentions.users;
               var {definition1,definition2} = player
               console.log(player);
-              player1 = player.definition1.username;
+              player1 = message.mentions.users.username;
               player2 = player.definition2.username;
               message.channel.send(player2 + ": Kakyoin no yatsu mo, sude ni shimatsu shite yatta so Polnareff wa dokozo ni hison de iru na, hah, do demo ii ga na. Tsugi wa "+ player1 +", kisama da!");
               message.channel.send(player1 + ":	Yarou, " + player2 + "!")
       } else {
               message.channel.send("mention 2 members and separate it with ' | ', example : 'n-jvd Jotaro | Dio'")
-          }
+          }*/
         }
       }
   });
