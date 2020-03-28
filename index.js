@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const dict = require('./dict.json');
-const prefix = dict.prefix;
+const prefix = process.env.prefix;
 const prefixbot = process.env.prefixbot;
 var fs = require('fs');
 const greet = dict.greet;
