@@ -43,9 +43,6 @@ client.on('message', message => {
         var playerdata = msglow.replace("n-jvd ","");
         console.log(playerdata);
         if (playerdata.includes(" | ") && playerdata.includes("<") && playerdata.includes(">")) {
-              player = message.mentions.users;
-              var {definition1,definition2} = player
-              console.log(player);
               player1 = message.mentions.users.first().username;
               player2 = message.mentions.users.last().username;
               message.channel.send(player2 + ": Kakyoin no yatsu mo, sude ni shimatsu shite yatta so Polnareff wa dokozo ni hison de iru na, hah, do demo ii ga na. Tsugi wa "+ player1 +", kisama da!");
