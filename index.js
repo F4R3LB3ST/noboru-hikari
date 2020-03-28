@@ -43,10 +43,8 @@ client.on('message', message => {
         var playerdata = msglow.replace("n-jvd ","");
         console.log(playerdata);
         if (playerdata.includes(" | ") && playerdata.includes("<") && playerdata.includes(">")) {
-              var definition = playerdata.split(" ");
-              var definition1 = definition[0].replace("<@","").replace(">","");
-              var definition2 = definition[2].replace("<@","").replace(">","");
               player = message.mentions.users;
+              var {definition1,definition2} = player
               console.log(player);
               player1 = player.definition1.username;
               player2 = player.definition2.username;
