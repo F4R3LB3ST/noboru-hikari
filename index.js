@@ -1,9 +1,10 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const prefix = process.env.prefix;
+const dict = require('dict.json');
+const prefix = dict.prefix;
 const prefixbot = process.env.prefixbot;
 var fs = require('fs');
-const greet = ["hi","hello","heyo","halo","hey","heya","ohayo","good morning","good afternoon","good night"]
+const greet = dict.greet;
 
 
 client.on('ready', () => {
@@ -14,7 +15,7 @@ client.on('message', message => {
   var sender = message.author.username;
   var msglow = message.content.toLowerCase();
 
-  if (msglow.startsWith(prefix)) {
+  if (msglow.includes(prefix)) {
     for (var i = 0; i <= greet.length; i++) {
       if (msglow.includes(greet[i])) {
           var startword = "";
@@ -27,7 +28,7 @@ client.on('message', message => {
           break;
         };
       };
-      if (msglow.includes("your") && msglow.includes("name")) {
+      if (msglow.includes("your") && msglow.includes("")) {
           message.channel.send("My Name is Noboru Hikari")
       }
     } else if (msglow.startsWith(prefixbot)) {
@@ -42,7 +43,7 @@ client.on('message', message => {
         var playerdata = msglow.replace("n-jvd","");
         console.log(playerdata);
         if (playerdata.includes(" | ") && playerdata.includes("<") && playerdata.includes(">")) {
-              player = playerdata.mentions.users;
+              player = message.mentions.users;
               console.log(player);
               player1 = player[0].username;
               player2 = player[1].username;
