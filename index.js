@@ -49,7 +49,12 @@ client.on('message', message => {
               player1 = message.mentions.users.first().username;
               player2 = message.mentions.users.last().username;
               message.channel.send(player2 + ": Kakyoin no yatsu mo, sude ni shimatsu shite yatta so Polnareff wa dokozo ni hison de iru na, hah, do demo ii ga na. Tsugi wa "+ player1 +", kisama da!");
-              message.channel.send(player1 + ":	Yarou, " + player2 + "!")
+              message.channel.send(player1 + ":	Yarou, " + player2 + "!");
+              message.channel.send(player2 + ": Hoh? mukatte kuru no ka? nigesu ni kono dio ni chikazuite kuru no ka? Sekkaku sofu no Joseph ga, watashi no Za Warudo no shoutai yo Shiken shuryu chaimu chokuzen made mondai yo toitte iru jukensee no you na? Kisshi koita kibun de wo shietekure ta to yuu no ni?");
+              message.channel.send(player1 + ": Chikadzu kana kya teme wo buchi no be senain de na");
+              message.channel.send(player2 + ":	Hoho, de wa juubun chikazuku ga yoi");
+              message.channel.send("(walks to each other)");
+              )
       } else {
               message.channel.send("mention 2 members and separate it with ' | ', example : 'n-jvd Jotaro | Dio'")
           }
