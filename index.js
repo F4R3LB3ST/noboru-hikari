@@ -51,7 +51,6 @@ client.on('message', message => {
               message.channel.send(player1 + ": Chikadzu kana kya teme wo buchi no be senain de na");
               message.channel.send(player2 + ":	Hoho, de wa juubun chikazuku ga yoi");
               message.channel.send("(walks to each other)");
-              )
       } else {
               message.channel.send("mention 2 members and separate it with ' | ', example : 'n-jvd Jotaro | Dio'")
           }
