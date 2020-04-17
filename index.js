@@ -61,7 +61,9 @@ client.on('guildMemberAdd', member => {
   const channel = member.guild.channels.find(ch => ch.name === 'member-log');
   if (!channel) return;
   var random = Math.floor(Math.random() * 1);
-  channel.send(`Irasshaimasen ${member}, take a look around on this server and make sure you active on this server`);
+  var result = "";
+  var result = eval(welcome[random]);
+  channel.send(`${result}`);
 });
 
 
