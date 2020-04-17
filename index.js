@@ -5,6 +5,7 @@ const prefix = process.env.prefix;
 const prefixbot = process.env.prefixbot;
 var fs = require('fs');
 const greet = dict.greet;
+const welcome = dict.welcome;
 
 
 client.on('ready', () => {
