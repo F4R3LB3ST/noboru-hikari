@@ -1,5 +1,4 @@
 {
   "greet":["hi "," hi","hello "," hello","heyo "," heyo","halo "," halo","hey "," hey","heya "," heya","ohayo "," ohayo","good morning","good afternoon","good night"],
-  "prefix":["noboru","noboru hikari","hikari"],
-  "welcome":["Tet has summoned" + ${member} + "into the Discord",${member} + "has been summoned into the server"]
+  "prefix":["noboru","noboru hikari","hikari"]
 }

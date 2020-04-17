@@ -5,7 +5,6 @@ const prefix = process.env.prefix;
 const prefixbot = process.env.prefixbot;
 var fs = require('fs');
 const greet = dict.greet;
-const welcome = dict.welcome;
 
 
 client.on('ready', () => {
@@ -62,7 +61,7 @@ client.on('guildMemberAdd', member => {
   const channel = member.guild.channels.find(ch => ch.name === 'member-log');
   if (!channel) return;
   var random = Math.floor(Math.random() * 1);
-  channel.send(welcome[random]);
+  channel.send(`Irasshaimasen ${member}, take a look around on this server and make sure you active on this server`);
 });
 
 
