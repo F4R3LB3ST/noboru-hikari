@@ -33,7 +33,7 @@ client.on('message', message => {
       }
     } else if (msglow.startsWith(prefixbot)) {
       if (msglow.includes("help")) {
-        message.channel.send("```n-ping ->    pong!\nn-help ->    command list\nn-CoV ->    no, just no.\nn-jvd   JoJo vs Dio custom dialogue (incomplete)```")
+        message.channel.send("```n-ping ->    pong!\nn-help ->    command list\nn-CoV  ->    no, just no.\nn-jvd  ->   JoJo vs Dio custom dialogue (incomplete)```")
       } else if (msglow.includes("ping")) {
         message.channel.send("pong!")
       } else if (msglow.includes("cov")) {
