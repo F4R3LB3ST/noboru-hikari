@@ -5,6 +5,7 @@ const prefix = process.env.prefix;
 const prefixbot = process.env.prefixbot;
 var fs = require('fs');
 const greet = dict.greet;
+const welcome = dict.welcome;
 
 
 client.on('ready', () => {
@@ -33,7 +34,7 @@ client.on('message', message => {
       }
     } else if (msglow.startsWith(prefixbot)) {
       if (msglow.includes("help")) {
-        message.channel.send("```n-ping ->  pong!\nn-help ->  command list\nn-CoV ->  no, just no.```")
+        message.channel.send("```n-ping ->    pong!\nn-help ->    command list\nn-CoV ->    no, just no.\nn-jvd   JoJo vs Dio custom dialogue (incomplete)```")
       } else if (msglow.includes("ping")) {
         message.channel.send("pong!")
       } else if (msglow.includes("cov")) {
@@ -41,7 +42,6 @@ client.on('message', message => {
         message.channel.send("https://www.globalgiving.org/projects/coronavirus-relief-fund/")
       } else if (msglow.includes("jvd")) {
         var playerdata = msglow.replace("n-jvd ","");
-        console.log(playerdata);
         if (playerdata.includes(" | ") && playerdata.includes("<") && playerdata.includes(">")) {
               player1 = message.mentions.users.first().username;
               player2 = message.mentions.users.last().username;
@@ -61,7 +61,8 @@ client.on('message', message => {
 client.on('guildMemberAdd', member => {
   const channel = member.guild.channels.find(ch => ch.name === 'member-log');
   if (!channel) return;
-  channel.send(`Welcome to the server, ${member}`);
+  var random = Math.floor(Math.random() * 1);
+  channel.send(welcome[random]);
 });
 
 
