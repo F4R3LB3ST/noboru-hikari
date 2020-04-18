@@ -6,6 +6,7 @@ const prefixbot = process.env.prefixbot;
 var fs = require('fs');
 const greet = dict.greet;
 const welcome = dict.welcome;
+const pokedesc = dict.pokedesc;
 
 
 client.on('ready', () => {
@@ -61,7 +62,7 @@ client.on('message', message => {
 client.on('guildMemberAdd', member => {
   const channel = member.guild.channels.find(ch => ch.name === 'member-log');
   if (!channel) return;
-  channel.send(eval(welcome[Math.floor(Math.random() * 3)]));
+  channel.send(eval(welcome[Math.floor(Math.random() * 4)]));
 });
 
 

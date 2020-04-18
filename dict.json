@@ -1,5 +1,6 @@
 {
   "greet":["hi ","hello "," hello","heyo "," heyo","halo "," halo","hey "," hey","heya "," heya","ohayo "," ohayo","good morning","good afternoon","good night"],
   "prefix":["noboru","noboru hikari","hikari"],
-  "welcome":["`Tet has summoned ${member} into the Discord.`","`${member} joined the Discord Online through VR.`","`${member} pierced himself with a stand arrow and joined this server, welcome.`"]
+  "welcome":["`Tet has summoned ${member} into the Discord.`","`${member} joined the Discord Online through VR.`","`${member} pierced himself with a stand arrow and joined this server, welcome.`","`An encounter!\n${member} with ${pokedesc[Math.floor(Math.random() * 7)]} has appeared!`"],
+  "pokedesc":["a nice looks","a bright future","a healthy dose of anime","a great spirit","a stand (ゴゴゴ)","a meme talent","good taste of animes"]
 }
