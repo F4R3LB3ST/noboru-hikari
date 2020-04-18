@@ -66,6 +66,8 @@ client.on('message', message => {
           } else {
             message.channel.send("You don't have the authority to do that").then(msg => msg.delete(3000))
           };
+        } else {
+          message.channel.send("how much messages you want to delete ?")
         }
       };
     });
