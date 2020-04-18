@@ -68,7 +68,8 @@ client.on('message', message => {
             message.channel.send("You don't have the authority to do that")
           };
       };
-    });
+    }
+  });
 
 client.on('guildMemberAdd', member => {
   const channel = member.guild.channels.find(ch => ch.name === 'member-log');
