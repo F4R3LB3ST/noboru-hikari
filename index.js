@@ -55,7 +55,7 @@ client.on('message', message => {
       } else {
               message.channel.send("mention 2 members and separate it with ' | ', example : 'n-jvd Jotaro | Dio'")
           }
-      } else if (msglow.includes("n-purge")) {
+      } else if (msglow.includes("n-purge" && msglow.length > 7)) {
         if (message.member.roles.get(700910147664609350)) {
         var x = "";
         var x = msglow.slice(8);
@@ -66,7 +66,7 @@ client.on('message', message => {
           } else {
             message.channel.send("You don't have the authority to do that").then(msg => msg.delete(3000))
           };
-        }    
+        }
       };
     });
 
