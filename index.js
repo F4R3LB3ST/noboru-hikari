@@ -61,7 +61,7 @@ client.on('message', message => {
 client.on('guildMemberAdd', member => {
   const channel = member.guild.channels.find(ch => ch.name === 'member-log');
   if (!channel) return;
-  channel.send(eval(welcome[Math.floor(Math.random() * 2)]));
+  channel.send(eval(welcome[Math.floor(Math.random() * 3)]));
 });
 
 
