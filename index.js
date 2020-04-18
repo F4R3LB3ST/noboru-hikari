@@ -20,56 +20,56 @@ client.on('message', message => {
   if (msglow.includes(prefix)) {
     for (var i = 0; i <= greet.length; i++) {
       if (msglow.includes(greet[i])) {
-          var startword = "";
-          var lastword = "";
-          var result = "";
-          var startword = greet[i].charAt().toUpperCase();
-          var lastword = greet[i].slice(1,greet[i].length);
-          var result = startword.concat(lastword);
-          message.channel.send(result + ", " + sender);
-          break;
-        };
+        var startword = "";
+        var lastword = "";
+        var result = "";
+        var startword = greet[i].charAt().toUpperCase();
+        var lastword = greet[i].slice(1,greet[i].length);
+        var result = startword.concat(lastword);
+        message.channel.send(result + ", " + sender);
+        break;
       };
+    };
       if (msglow.includes("your") && msglow.includes("name")) {
           message.channel.send("My Name is Noboru Hikari")
       }
-    } else if (msglow.startsWith(prefixbot)) {
+  } else if (msglow.startsWith(prefixbot)) {
       if (msglow.includes("help")) {
         message.channel.send("```n-ping ->    pong!\nn-help ->    command list\nn-CoV  ->    no, just no.\nn-jvd  ->    JoJo vs Dio custom dialogue (incomplete)```")
-      } else if (msglow.includes("ping")) {
+  } else if (msglow.includes("ping")) {
         message.channel.send("pong!")
-      } else if (msglow.includes("cov")) {
+  } else if (msglow.includes("cov")) {
         message.channel.send("instead of making jokes about SARS-2, why you guys not donate to the charity to help the healthcare")
         message.channel.send("https://www.globalgiving.org/projects/coronavirus-relief-fund/")
-      } else if (msglow.includes("jvd")) {
-        var playerdata = msglow.replace("n-jvd ","");
-        if (playerdata.includes(" | ") && playerdata.includes("<") && playerdata.includes(">")) {
-              player1 = message.mentions.users.first().username;
-              player2 = message.mentions.users.last().username;
-              message.channel.send(player2 + ": Kakyoin no yatsu mo, sude ni shimatsu shite yatta so Polnareff wa dokozo ni hison de iru na, hah, do demo ii ga na. Tsugi wa "+ player1 +", kisama da!");
-              message.channel.send(player1 + ":	Yarou, " + player2 + "!");
-              message.channel.send(player2 + ": Hoh? mukatte kuru no ka? nigesu ni kono dio ni chikazuite kuru no ka? Sekkaku sofu no Joseph ga, watashi no Za Warudo no shoutai yo Shiken shuryu chaimu chokuzen made mondai yo toitte iru jukensee no you na? Kisshi koita kibun de wo shietekure ta to yuu no ni?");
-              message.channel.send(player1 + ": Chikadzu kana kya teme wo buchi no be senain de na");
-              message.channel.send(player2 + ":	Hoho, de wa juubun chikazuku ga yoi");
-              message.channel.send("(walks to each other)");
-      } else {
-              message.channel.send("mention 2 members and separate it with ' | ', example : 'n-jvd Jotaro | Dio'")
-          }
-      } else if (msglow.includes("n-purge")) {
+  } else if (msglow.includes("jvd")) {
+    var playerdata = msglow.replace("n-jvd ","");
+      if (playerdata.includes(" | ") && playerdata.includes("<") && playerdata.includes(">")) {
+          player1 = message.mentions.users.first().username;
+          player2 = message.mentions.users.last().username;
+          message.channel.send(player2 + ": Kakyoin no yatsu mo, sude ni shimatsu shite yatta so Polnareff wa dokozo ni hison de iru na, hah, do demo ii ga na. Tsugi wa "+ player1 +", kisama da!");
+          message.channel.send(player1 + ":	Yarou, " + player2 + "!");
+          message.channel.send(player2 + ": Hoh? mukatte kuru no ka? nigesu ni kono dio ni chikazuite kuru no ka? Sekkaku sofu no Joseph ga, watashi no Za Warudo no shoutai yo Shiken shuryu chaimu chokuzen made mondai yo toitte iru jukensee no you na? Kisshi koita kibun de wo shietekure ta to yuu no ni?");
+          message.channel.send(player1 + ": Chikadzu kana kya teme wo buchi no be senain de na");
+          message.channel.send(player2 + ":	Hoho, de wa juubun chikazuku ga yoi");
+          message.channel.send("(walks to each other)");
+    } else {
+          message.channel.send("mention 2 members and separate it with ' | ', example : 'n-jvd Jotaro | Dio'")
+        }
+  } else if (msglow.includes("n-purge")) {
           if (message.member.roles.get(700910147664609350)) {
             message.channel.send("how many messages you wanna delete ?")
             const collector = new Discord.MessageCollector(message.channel, m => m.author.id == message.author.id, { time: 10000 });
             collector.on('collect', message => {
                 message.channel.bulkDelete(message).then(() => {
                 message.channel.send(`Deleted ${message} message(s)`).then(msg => msg.delete(3000));
-                });
-              })
-          } else {
+              });
+            })
+        } else {
             message.channel.send("You don't have the authority to do that")
-          };
-      };
-    }
-  });
+        };
+    };
+  }
+});
 
 client.on('guildMemberAdd', member => {
   const channel = member.guild.channels.find(ch => ch.name === 'member-log');
