@@ -56,7 +56,7 @@ client.on('message', message => {
           message.channel.send("mention 2 members and separate it with ' | ', example : 'n-jvd Jotaro | Dio'")
         }
   } else if (msglow.includes("n-purge")) {
-          if (message.member.roles.find(role => role.hasPermission('Administrator'))) {
+          if (message.member.roles.get('700910147664609350')) {
             message.channel.send("how many messages you wanna delete ?")
             const collector = new Discord.MessageCollector(message.channel, m => m.author.id == message.author.id, { time: 10000 });
             collector.on('collect', message => {
