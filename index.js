@@ -18,14 +18,11 @@ client.on('message', message => {
   var msglow = message.content.toLowerCase();
 
   if (msglow.includes(prefix)) {
-    for (var i = 0; i <= greet.length; i++) {
+    for (let i = 0; i <= greet.length; i++) {
       if (msglow.includes(greet[i])) {
-        var startword = "";
-        var lastword = "";
-        var result = "";
-        var startword = greet[i].charAt().toUpperCase();
-        var lastword = greet[i].slice(1,greet[i].length);
-        var result = startword.concat(lastword);
+        let startword = greet[i].charAt().toUpperCase();
+        let lastword = greet[i].slice(1,greet[i].length);
+        let result = startword.concat(lastword);
         message.channel.send(result + ", " + sender);
         break;
       };
@@ -44,10 +41,14 @@ client.on('message', message => {
   } else if (msglow.includes("jvd")) {
     var playerdata = msglow.replace("n-jvd ","");
       if (playerdata.includes(" | ") && playerdata.includes("<") && playerdata.includes(">")) {
-          player1 = message.mentions.users.first().username;
-          player2 = message.mentions.users.last().username;
-          message.channel.send(player2 + ": Kakyoin no yatsu mo, sude ni shimatsu shite yatta so Polnareff wa dokozo ni hison de iru na, hah, do demo ii ga na. Tsugi wa "+ player1 +", kisama da!");
-          message.channel.send(player1 + ":	Yarou, " + player2 + "!");
+          let player1 = message.mentions.users.first().username;
+          let player2 = message.mentions.users.last().username;
+          let result = "``";
+          message.channel.send()
+          .then((msg) => {
+              msg.edit();
+            };
+          message.channel.send(${player1} + ":	Yarou, " + player2 + "!");
           message.channel.send(player2 + ": Hoh? mukatte kuru no ka? nigesu ni kono dio ni chikazuite kuru no ka? Sekkaku sofu no Joseph ga, watashi no Za Warudo no shoutai yo Shiken shuryu chaimu chokuzen made mondai yo toitte iru jukensee no you na? Kisshi koita kibun de wo shietekure ta to yuu no ni?");
           message.channel.send(player1 + ": Chikadzu kana kya teme wo buchi no be senain de na");
           message.channel.send(player2 + ":	Hoho, de wa juubun chikazuku ga yoi");
