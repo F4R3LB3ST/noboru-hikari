@@ -55,7 +55,7 @@ client.on('message', message => {
     } else {
           message.channel.send("mention 2 members and separate it with ' | ', example : 'n-jvd Jotaro | Dio'")
         }
-  } else if (msglow == "n-purge") {
+  } else if (msglow.localeCompare("n-purge") == 0) {
           if (message.member.hasPermission('ADMINISTRATOR')) {
             message.channel.send("how many messages you wanna delete ?")
             const collector = new Discord.MessageCollector(message.channel, m => m.author.id == message.author.id, { time: 10000 });
