@@ -13,6 +13,11 @@ var smartstatus = false
 
 client.on('ready', () => {
   client.user.setStatus('online', "n-help")
+  client.user.setPresence({
+        game: {
+            name: 'with my father',
+        }
+    });
   console.log('I am ready!');
 });
 
