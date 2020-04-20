@@ -43,11 +43,15 @@ client.on('message', message => {
       if (playerdata.includes(" | ") && playerdata.includes("<") && playerdata.includes(">")) {
           let player1 = message.mentions.users.first().username;
           let player2 = message.mentions.users.last().username;
-          let result = "``";
-          message.channel.send()
-          .then((msg) => {
-              msg.edit();
-            };
+          let result = "";
+          for (z in jojodial) {
+            result = result.concat(jojodial[z]);
+            message.channel.send()
+            .then((msg) => {
+                msg.edit("`"+eval(result)+"`");
+              };
+            .setTimeout(function(){console.log("working");},1000);
+          }
           message.channel.send(${player1} + ":	Yarou, " + player2 + "!");
           message.channel.send(player2 + ": Hoh? mukatte kuru no ka? nigesu ni kono dio ni chikazuite kuru no ka? Sekkaku sofu no Joseph ga, watashi no Za Warudo no shoutai yo Shiken shuryu chaimu chokuzen made mondai yo toitte iru jukensee no you na? Kisshi koita kibun de wo shietekure ta to yuu no ni?");
           message.channel.send(player1 + ": Chikadzu kana kya teme wo buchi no be senain de na");
@@ -62,7 +66,7 @@ client.on('message', message => {
             const collector = new Discord.MessageCollector(message.channel, m => m.author.id == message.author.id, { time: 10000 });
             collector.on('collect', message => {
                 message.channel.bulkDelete(message).then(() => {
-                message.channel.send(`Deleted ${message} message(s)`).then(msg => msg.delete(5000));
+                message.channel.send(`Deleted ${message} message(s)`).then(msg => msg.delete(3000));
               });
             })
         } else {
