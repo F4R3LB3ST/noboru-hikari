@@ -29,7 +29,7 @@ client.on('message', message => {
       message.channel.send("smart mode off!");
       console.log(smartstatus);
     };
-  } else if (smartstatus == false && !msglow == "n-smart") {
+  } else if (!smartstatus) {
     if (msglow.startsWith(prefixbot)) {
         if (msglow.includes("help")) {
           message.channel.send("```n-ping  -> Pong!\nn-help  -> Command list\nn-CoV   -> No, just no.\nn-jvd   -> JoJo vs Dio custom dialogue (incomplete)\nn-purge -> Snap! half of the chat is gone...\nn-smart -> turn on smart mode (can't accept command)```")
@@ -73,7 +73,7 @@ client.on('message', message => {
             message.channel.send("mention 2 members and separate it with ' | ', example : 'n-jvd Jotaro | Dio'")
           } */
     }
-  } else if (smartstatus && !msglow == "n-smart") {
+  } else if (smartstatus) {
     let msgsplit = msglow.split(" ");
     let lastsentence = msgsplit[msgsplit.length]
     if (!smart.name.indexOf(lastsentence) == -1) {
