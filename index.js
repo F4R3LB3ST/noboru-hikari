@@ -73,7 +73,6 @@ client.on('message', message => {
             message.channel.send("You don't have the authority to do that")
         };
     };
-  }
 });
 
 client.on('guildMemberAdd', member => {
