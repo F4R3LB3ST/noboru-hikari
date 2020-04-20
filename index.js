@@ -26,7 +26,7 @@ client.on('message', message => {
           message.channel.send("failed to set smart mode to true!")
         } else
           message.channel.send("smart mode on!");
-      };
+      });
     };
   } else if (!smart.status && !msglow == "n-smart") {
     if (msglow.includes(prefix)) {
