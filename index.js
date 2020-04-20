@@ -76,7 +76,7 @@ client.on('message', message => {
   } else if (smartstatus) {
     let msgsplit = msglow.split(" ");
     let lastsentence = msgsplit[msgsplit.length-1]
-    console.log(lastsentence);
+    console.log(!smart.name.indexOf(lastsentence) == -1);
     if (!smart.name.indexOf(lastsentence) == -1) {
       let search = msgsplit.pop();
       for (b in search) {
