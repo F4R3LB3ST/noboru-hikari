@@ -86,22 +86,25 @@ client.on('message', message => {
             message.channel.send("mention 2 members and separate it with ' | ', example : 'n-jvd Jotaro | Dio'")
           } */
     }
-  } else if (msglow.endsWith(prefix)) {
+  } else if (smart.status && !msglow == "n-smart") {
     let msgsplit = msglow.split(" ");
-    let search = msgsplit.pop();
-    for (b in search) {
-      if (!greet.indexOf(b) == -1) {
-        let i = greet.indexOf(b)
-        let startword = greet[i].charAt().toUpperCase()
-        let lastword = greet[i].slice(1,greet[i].length)
-        let result = startword.concat(lastword)
-        message.channel.send(result + ", " + sender)
-        break;
-      }
-    } if (msglow.includes("name")) {
-            message.channel.send("My Name is Noboru Hikari")
-        }
-    }
+    let lastsentence = msgsplit[msgsplit.length]
+    if (!lastsentence.indexOf(smart.name) = -1) {
+      let search = msgsplit.pop();
+      for (b in search) {
+        if (!greet.indexOf(b) == -1) {
+          let i = greet.indexOf(b)
+          let startword = greet[i].charAt().toUpperCase()
+          let lastword = greet[i].slice(1,greet[i].length)
+          let result = startword.concat(lastword)
+          message.channel.send(result + ", " + sender)
+          break;
+        } else if (msglow.includes("name")) {
+                message.channel.send("My Name is Noboru Hikari")
+          }
+        };
+      };
+    };
 });
 
 client.on('guildMemberAdd', member => {
