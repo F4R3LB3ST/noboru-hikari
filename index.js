@@ -88,7 +88,8 @@ client.on('message', message => {
           message.channel.send(result + ", " + sender)
           break;
         }
-      }; else if (msglow.includes("name")) {
+      };
+      if (msglow.includes("name")) {
               message.channel.send("My Name is Noboru Hikari")
         };
       } else if (msglow.startsWith("n-")) {
