@@ -10,7 +10,7 @@ const welcome = command.welcome;
 const pokedesc = command.pokedesc;
 
 client.on('ready', () => {
-  client.user.setStatus('idle', "i can be mean sometimes")
+  client.user.setStatus('online', "n-help")
   console.log('I am ready!');
 });
 
@@ -45,7 +45,7 @@ client.on('message', message => {
   } else if (smart.status == false && !msglow == "n-smart") {
     if (msglow.startsWith(prefixbot)) {
         if (msglow.includes("help")) {
-          message.channel.send("```n-ping ->    pong!\nn-help ->    command list\nn-CoV  ->    no, just no.\nn-jvd  ->    JoJo vs Dio custom dialogue (incomplete)```")
+          message.channel.send("```n-ping  -> Pong!\nn-help  -> Command list\nn-CoV   -> No, just no.\nn-jvd   -> JoJo vs Dio custom dialogue (incomplete)\nn-purge -> Snap! half of the chat is gone...\nn-smart -> turn on smart mode (can't accept command)```")
         } else if (msglow.includes("ping")) {
           message.channel.send("pong!")
         } else if (msglow.includes("cov")) {
@@ -103,6 +103,8 @@ client.on('message', message => {
                 message.channel.send("My Name is Noboru Hikari")
           }
         };
+      } else if (msglow.startsWith("n-")) {
+        message.channel.send("can't accept commands, re-enable it with n-smart")
       };
     };
 });
