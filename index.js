@@ -79,7 +79,7 @@ client.on('message', message => {
       let search = msgsplit.pop();
       for (b in search) {
         console.log(b);
-        if (greet[b].includes(msglow)) {
+        if (msglow.includes(greet[b])) {
           let word = greet[b]
           console.log(word);
           let startword = word.charAt(0).toUpperCase()
