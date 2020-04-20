@@ -38,7 +38,7 @@ client.on('message', message => {
   } else if (msglow.includes("cov")) {
         message.channel.send("instead of making jokes about SARS-2, why you guys not donate to the charity to help the healthcare")
         message.channel.send("https://www.globalgiving.org/projects/coronavirus-relief-fund/")
-  } else if (msglow.includes("jvd")) {
+  } /* else if (msglow.includes("jvd")) {
     var playerdata = msglow.replace("n-jvd ","");
       if (playerdata.includes(" | ") && playerdata.includes("<") && playerdata.includes(">")) {
           let player1 = message.mentions.users.first().username;
@@ -59,7 +59,7 @@ client.on('message', message => {
           message.channel.send("(walks to each other)");
     } else {
           message.channel.send("mention 2 members and separate it with ' | ', example : 'n-jvd Jotaro | Dio'")
-        }
+        } */
   } else if (msglow.localeCompare("n-purge") == 0) {
           if (message.member.hasPermission('ADMINISTRATOR')) {
             message.channel.send("how many messages you wanna delete ?")
