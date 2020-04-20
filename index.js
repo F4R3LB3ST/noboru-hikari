@@ -89,7 +89,7 @@ client.on('message', message => {
   } else if (smart.status && !msglow == "n-smart") {
     let msgsplit = msglow.split(" ");
     let lastsentence = msgsplit[msgsplit.length]
-    if (!lastsentence.indexOf(smart.name) = -1) {
+    if (!smart.name.indexOf(lastsentence) = -1) {
       let search = msgsplit.pop();
       for (b in search) {
         if (!greet.indexOf(b) == -1) {
