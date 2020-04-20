@@ -76,10 +76,10 @@ client.on('message', message => {
     let msgsplit = msglow.split(" ");
     let lastsentence = msgsplit[msgsplit.length-1]
     console.log(!smart.name.indexOf(lastsentence) == -1)
-    if (!smartread.name.indexOf(lastsentence) == -1) {
+    if (smart.name.indexOf(lastsentence) > -1) {
       let search = msgsplit.pop();
       for (b in search) {
-        if (!greet.indexOf(b) == -1) {
+        if (!greet.indexOf(b) > -1) {
           let i = greet.indexOf(b)
           let startword = greet[i].charAt().toUpperCase()
           let lastword = greet[i].slice(1,greet[i].length)
