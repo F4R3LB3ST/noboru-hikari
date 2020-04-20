@@ -30,7 +30,7 @@ client.on('message', message => {
         }
       });
     } else if (smart.status) {
-      smart.status = true
+      smart.status = false
       fs.writeFile('./userdata.json', JSON.stringify(smart), (err) =>{
           if (err) {
           console.error(err)
