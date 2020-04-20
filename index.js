@@ -10,13 +10,7 @@ const welcome = command.welcome;
 const pokedesc = command.pokedesc;
 
 client.on('ready', () => {
-  client.user.setStatus('available')
-    client.user.setPresence({
-        game: {
-            name: 'i can be mean sometimes',
-            type: "STREAMING",
-        }
-  });
+  client.user.setStatus('idle', "i can be mean sometimes")
   console.log('I am ready!');
 });
 
