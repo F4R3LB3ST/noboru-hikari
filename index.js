@@ -10,10 +10,18 @@ const welcome = command.welcome;
 const pokedesc = command.pokedesc;
 
 client.on('ready', () => {
+  bot.user.setStatus('available')
+    bot.user.setPresence({
+        game: {
+            name: 'i can be mean sometimes',
+            type: "STREAMING",
+        }
+  });
   console.log('I am ready!');
 });
 
 client.on('message', message => {
+
   var sender = message.author.username;
   var msglow = message.content.toLowerCase();
 
@@ -97,7 +105,7 @@ client.on('message', message => {
         message.channel.send(result + ", " + sender)
         break;
       }
-    } else if (msglow.includes("name")) {
+    } if (msglow.includes("name")) {
             message.channel.send("My Name is Noboru Hikari")
         }
     }
