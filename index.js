@@ -78,6 +78,7 @@ client.on('message', message => {
     if (smart.name.indexOf(lastsentence) > -1) {
       let search = msgsplit.pop();
       for (b in search) {
+        console.log(b);
         if (greet.indexOf(b) > -1) {
           let word = greet[b]
           console.log(word);
