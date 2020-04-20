@@ -22,26 +22,12 @@ client.on('message', message => {
   if (msglow == "n-smart") {
     if (!smartstatus) {
       smartstatus = true
-      fs.writeFile('./userdata.json', JSON.stringify(smart), (err) =>{
-          if (err) {
-          console.error(err)
-          message.channel.send("failed to set smart mode to true!")
-        } else {
-          message.channel.send("smart mode on!");
-          console.log(smartstatus);
-        }
-      });
+      message.channel.send("smart mode on!");
+      console.log(smartstatus);
     } else if (smartstatus) {
       smartstatus = false
-      fs.writeFile('./userdata.json', JSON.stringify(smart), (err) =>{
-          if (err) {
-          console.error(err)
-          message.channel.send("failed to set smart mode to false!")
-        } else {
-          message.channel.send("smart mode off!");
-          console.log(smartstatus);
-        }
-      });
+      message.channel.send("smart mode off!");
+      console.log(smartstatus);
     };
   } else if (smartstatus == false && !msglow == "n-smart") {
     if (msglow.startsWith(prefixbot)) {
