@@ -80,7 +80,7 @@ client.on('message', message => {
       let search = msgsplit.pop();
       for (b in search) {
         if (!greet.indexOf(b) > -1) {
-          let i = greet.indexOf(b)
+          let i = greet.find(b)
           let startword = greet[i].charAt().toUpperCase()
           let lastword = greet[i].slice(1,greet[i].length)
           let result = startword.concat(lastword)
