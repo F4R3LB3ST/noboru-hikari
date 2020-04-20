@@ -1,13 +1,13 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+var fs = require('fs');
 const command = require('./command.json');
+var smart = JSON.parse(fs.readFileSync('./smart.json', 'utf8'));
 const prefix = process.env.prefix;
 const prefixbot = process.env.prefixbot;
-var fs = require('fs');
 const greet = command.greet;
 const welcome = command.welcome;
 const pokedesc = command.pokedesc;
-
 
 client.on('ready', () => {
   console.log('I am ready!');
@@ -18,63 +18,72 @@ client.on('message', message => {
   var msglow = message.content.toLowerCase();
 
   if (msglow == "n-smart") {
-    
-  }
-
-  if (msglow.includes(prefix)) {
-    for (let i = 0; i <= greet.length && msglow.match(greet[i]); i++) {
-        let startword = greet[i].charAt().toUpperCase();
-        let lastword = greet[i].slice(1,greet[i].length);
-        let result = startword.concat(lastword);
-        message.channel.send(result + ", " + sender);
-        break;
+    if (!smart.status) {
+      smart.status = true
+      fs.writeFile('./userdata.json', JSON.stringify(smart), (err) =>{
+          if (err) {
+          console.error(err)
+          message.channel.send("failed to set smart mode to true!")
+        } else
+          message.channel.send("smart mode on!");
+      };
     };
-      if (msglow.includes("your") && msglow.includes("name")) {
-          message.channel.send("My Name is Noboru Hikari")
-      }
-  } else if (msglow.startsWith(prefixbot)) {
-      if (msglow.includes("help")) {
-        message.channel.send("```n-ping ->    pong!\nn-help ->    command list\nn-CoV  ->    no, just no.\nn-jvd  ->    JoJo vs Dio custom dialogue (incomplete)```")
-  } else if (msglow.includes("ping")) {
-        message.channel.send("pong!")
-  } else if (msglow.includes("cov")) {
-        message.channel.send("instead of making jokes about SARS-2, why you guys not donate to the charity to help the healthcare")
-        message.channel.send("https://www.globalgiving.org/projects/coronavirus-relief-fund/")
-  } /* else if (msglow.includes("jvd")) {
-    var playerdata = msglow.replace("n-jvd ","");
-      if (playerdata.includes(" | ") && playerdata.includes("<") && playerdata.includes(">")) {
-          let player1 = message.mentions.users.first().username;
-          let player2 = message.mentions.users.last().username;
-          let result = "";
-          for (z in jojodial) {
-            result = result.concat(jojodial[z]);
-            message.channel.send()
-            .then((msg) => {
-                msg.edit("`"+eval(result)+"`");
-              };
-            .setTimeout(function(){console.log("working");},1000);
-          }
-          message.channel.send(${player1} + ":	Yarou, " + player2 + "!");
-          message.channel.send(player2 + ": Hoh? mukatte kuru no ka? nigesu ni kono dio ni chikazuite kuru no ka? Sekkaku sofu no Joseph ga, watashi no Za Warudo no shoutai yo Shiken shuryu chaimu chokuzen made mondai yo toitte iru jukensee no you na? Kisshi koita kibun de wo shietekure ta to yuu no ni?");
-          message.channel.send(player1 + ": Chikadzu kana kya teme wo buchi no be senain de na");
-          message.channel.send(player2 + ":	Hoho, de wa juubun chikazuku ga yoi");
-          message.channel.send("(walks to each other)");
-    } else {
-          message.channel.send("mention 2 members and separate it with ' | ', example : 'n-jvd Jotaro | Dio'")
-        } */
-  } else if (msglow.localeCompare("n-purge") == 0) {
-          if (message.member.hasPermission('ADMINISTRATOR')) {
-            message.channel.send("how many messages you wanna delete ?")
-            const collector = new Discord.MessageCollector(message.channel, m => m.author.id == message.author.id, { time: 10000 });
-            collector.on('collect', message => {
-                message.channel.bulkDelete(message).then(() => {
-                message.channel.send(`Deleted ${message} message(s)`).then(msg => msg.delete(3000));
-              });
-            })
-        } else {
-            message.channel.send("You don't have the authority to do that")
-        };
+  } else if (!smart.status && !msglow == "n-smart") {
+    if (msglow.includes(prefix)) {
+      for (let i = 0; i <= greet.length && msglow.match(greet[i]); i++) {
+          let startword = greet[i].charAt().toUpperCase()
+          let lastword = greet[i].slice(1,greet[i].length)
+          let result = startword.concat(lastword)
+          message.channel.send(result + ", " + sender)
+          break;
+      };
+        if (msglow.includes("your") && msglow.includes("name")) {
+            message.channel.send("My Name is Noboru Hikari")
+        }
+    } else if (msglow.startsWith(prefixbot)) {
+        if (msglow.includes("help")) {
+          message.channel.send("```n-ping ->    pong!\nn-help ->    command list\nn-CoV  ->    no, just no.\nn-jvd  ->    JoJo vs Dio custom dialogue (incomplete)```")
+    } else if (msglow.includes("ping")) {
+          message.channel.send("pong!")
+    } else if (msglow.includes("cov")) {
+          message.channel.send("instead of making jokes about SARS-2, why you guys not donate to the charity to help the healthcare")
+          message.channel.send("https://www.globalgiving.org/projects/coronavirus-relief-fund/")
+    } /* else if (msglow.includes("jvd")) {
+      var playerdata = msglow.replace("n-jvd ","");
+        if (playerdata.includes(" | ") && playerdata.includes("<") && playerdata.includes(">")) {
+            let player1 = message.mentions.users.first().username;
+            let player2 = message.mentions.users.last().username;
+            let result = "";
+            for (z in jojodial) {
+              result = result.concat(jojodial[z]);
+              message.channel.send()
+              .then((msg) => {
+                  msg.edit("`"+eval(result)+"`");
+                };
+              .setTimeout(function(){console.log("working");},1000);
+            }
+            message.channel.send(${player1} + ":	Yarou, " + player2 + "!");
+            message.channel.send(player2 + ": Hoh? mukatte kuru no ka? nigesu ni kono dio ni chikazuite kuru no ka? Sekkaku sofu no Joseph ga, watashi no Za Warudo no shoutai yo Shiken shuryu chaimu chokuzen made mondai yo toitte iru jukensee no you na? Kisshi koita kibun de wo shietekure ta to yuu no ni?");
+            message.channel.send(player1 + ": Chikadzu kana kya teme wo buchi no be senain de na");
+            message.channel.send(player2 + ":	Hoho, de wa juubun chikazuku ga yoi");
+            message.channel.send("(walks to each other)");
+      } else {
+            message.channel.send("mention 2 members and separate it with ' | ', example : 'n-jvd Jotaro | Dio'")
+          } */
+    } else if (msglow.localeCompare("n-purge") == 0) {
+            if (message.member.hasPermission('ADMINISTRATOR')) {
+              message.channel.send("how many messages you wanna delete ?")
+              const collector = new Discord.MessageCollector(message.channel, m => m.author.id == message.author.id, { time: 10000 });
+              collector.on('collect', message => {
+                  message.channel.bulkDelete(message).then(() => {
+                  message.channel.send(`Deleted ${message} message(s)`).then(msg => msg.delete(3000))
+                });
+              })
+          } else {
+              message.channel.send("You don't have the authority to do that")
+          };
     };
+  };
 });
 
 client.on('guildMemberAdd', member => {

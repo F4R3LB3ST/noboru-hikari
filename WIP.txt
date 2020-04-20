@@ -1,0 +1,6 @@
+var userData = JSON.parse(fs.readFileSync('./userdata.json', 'utf8'));
+fs.writeFile('./userdata.json', JSON.stringify(userData), (err) =>{
+    if (err) console.error(err);
+    if (!userData[sender.id] && !userData == 509302081635614746) userData[sender.id] = {
+       modesty: 50
+   }
