@@ -75,12 +75,11 @@ client.on('message', message => {
   } else if (smartstatus) {
     let msgsplit = msglow.split(" ");
     let lastsentence = msgsplit[msgsplit.length-1]
-    console.log(!smart.name.indexOf(lastsentence) == -1)
     if (smart.name.indexOf(lastsentence) > -1) {
       let search = msgsplit.pop();
       for (b in search) {
         if (!greet.indexOf(b) > -1) {
-          let word = greet.includes(b)
+          let word = greet[b]
           console.log(word);
           let startword = word.charAt(0).toUpperCase()
           let lastword = word.slice(1,word.length)
