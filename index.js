@@ -27,6 +27,15 @@ client.on('message', message => {
         } else
           message.channel.send("smart mode on!");
       });
+    } else if (smart.status) {
+      smart.status = true
+      fs.writeFile('./userdata.json', JSON.stringify(smart), (err) =>{
+          if (err) {
+          console.error(err)
+          message.channel.send("failed to set smart mode to false!")
+        } else
+          message.channel.send("smart mode off!");
+      });
     };
   } else if (!smart.status && !msglow == "n-smart") {
     if (msglow.includes(prefix)) {
