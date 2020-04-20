@@ -8,6 +8,7 @@ const prefixbot = process.env.prefixbot;
 const greet = command.greet;
 const welcome = command.welcome;
 const pokedesc = command.pokedesc;
+var smartstatus = false
 
 client.on('ready', () => {
   client.user.setStatus('online', "n-help")
@@ -19,30 +20,30 @@ client.on('message', message => {
   var msglow = message.content.toLowerCase();
 
   if (msglow == "n-smart") {
-    if (!smart.status) {
-      smart.status = true
+    if (!smartstatus) {
+      smartstatus = true
       fs.writeFile('./userdata.json', JSON.stringify(smart), (err) =>{
           if (err) {
           console.error(err)
           message.channel.send("failed to set smart mode to true!")
         } else {
           message.channel.send("smart mode on!");
-          console.log(smart.status);
+          console.log(smartstatus);
         }
       });
-    } else if (smart.status) {
-      smart.status = false
+    } else if (smartstatus) {
+      smartstatus = false
       fs.writeFile('./userdata.json', JSON.stringify(smart), (err) =>{
           if (err) {
           console.error(err)
           message.channel.send("failed to set smart mode to false!")
         } else {
           message.channel.send("smart mode off!");
-          console.log(smart.status);
+          console.log(smartstatus);
         }
       });
     };
-  } else if (smart.status == false && !msglow == "n-smart") {
+  } else if (smartstatus == false && !msglow == "n-smart") {
     if (msglow.startsWith(prefixbot)) {
         if (msglow.includes("help")) {
           message.channel.send("```n-ping  -> Pong!\nn-help  -> Command list\nn-CoV   -> No, just no.\nn-jvd   -> JoJo vs Dio custom dialogue (incomplete)\nn-purge -> Snap! half of the chat is gone...\nn-smart -> turn on smart mode (can't accept command)```")
@@ -86,7 +87,7 @@ client.on('message', message => {
             message.channel.send("mention 2 members and separate it with ' | ', example : 'n-jvd Jotaro | Dio'")
           } */
     }
-  } else if (smart.status && !msglow == "n-smart") {
+  } else if (smartstatus && !msglow == "n-smart") {
     let msgsplit = msglow.split(" ");
     let lastsentence = msgsplit[msgsplit.length]
     if (!smart.name.indexOf(lastsentence) == -1) {
