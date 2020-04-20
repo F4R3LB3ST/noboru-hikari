@@ -24,8 +24,10 @@ client.on('message', message => {
           if (err) {
           console.error(err)
           message.channel.send("failed to set smart mode to true!")
-        } else
+        } else {
           message.channel.send("smart mode on!");
+          console.log(smart.status);
+        }
       });
     } else if (smart.status) {
       smart.status = true
@@ -33,8 +35,10 @@ client.on('message', message => {
           if (err) {
           console.error(err)
           message.channel.send("failed to set smart mode to false!")
-        } else
+        } else {
           message.channel.send("smart mode off!");
+          console.log(smart.status);
+        }
       });
     };
   } else if (!smart.status && !msglow == "n-smart") {
