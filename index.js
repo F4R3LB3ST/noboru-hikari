@@ -1,12 +1,12 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const dict = require('./dict.json');
+const command = require('./command.json');
 const prefix = process.env.prefix;
 const prefixbot = process.env.prefixbot;
 var fs = require('fs');
-const greet = dict.greet;
-const welcome = dict.welcome;
-const pokedesc = dict.pokedesc;
+const greet = command.greet;
+const welcome = command.welcome;
+const pokedesc = command.pokedesc;
 
 
 client.on('ready', () => {
@@ -17,15 +17,17 @@ client.on('message', message => {
   var sender = message.author.username;
   var msglow = message.content.toLowerCase();
 
+  if (msglow == "n-smart") {
+    
+  }
+
   if (msglow.includes(prefix)) {
-    for (let i = 0; i <= greet.length; i++) {
-      if (msglow.includes(greet[i])) {
+    for (let i = 0; i <= greet.length && msglow.match(greet[i]); i++) {
         let startword = greet[i].charAt().toUpperCase();
         let lastword = greet[i].slice(1,greet[i].length);
         let result = startword.concat(lastword);
         message.channel.send(result + ", " + sender);
         break;
-      };
     };
       if (msglow.includes("your") && msglow.includes("name")) {
           message.channel.send("My Name is Noboru Hikari")
