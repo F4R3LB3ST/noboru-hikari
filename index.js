@@ -86,14 +86,18 @@ client.on('message', message => {
           } */
     }
   } else if (msglow.endsWith(prefix)) {
-      for (let i = 0; i <= greet.length && msglow.includes(greet[i]); i++) {
-          let startword = greet[i].charAt().toUpperCase()
-          let lastword = greet[i].slice(1,greet[i].length)
-          let result = startword.concat(lastword)
-          message.channel.send(result + ", " + sender)
-          break;
-      };
-        if (msglow.includes("name")) {
+    let msgsplit = msglow.split(" ");
+    let search = msgsplit.pop();
+    for (b in search) {
+      if (!greet.indexOf(b) == -1) {
+        let i = greet.indexOf(b)
+        let startword = greet[i].charAt().toUpperCase()
+        let lastword = greet[i].slice(1,greet[i].length)
+        let result = startword.concat(lastword)
+        message.channel.send(result + ", " + sender)
+        break;
+      }
+    } else if (msglow.includes("name")) {
             message.channel.send("My Name is Noboru Hikari")
         }
     }
