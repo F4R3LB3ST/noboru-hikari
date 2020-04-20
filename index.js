@@ -81,6 +81,7 @@ client.on('message', message => {
       for (b in search) {
         if (!greet.indexOf(b) > -1) {
           let word = greet.includes(b)
+          console.log(word);
           let startword = word.charAt(0).toUpperCase()
           let lastword = word.slice(1,word.length)
           let result = startword.concat(lastword)
