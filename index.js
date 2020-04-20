@@ -23,11 +23,9 @@ client.on('message', message => {
     if (!smartstatus) {
       smartstatus = true
       message.channel.send("smart mode on!");
-      console.log(smartstatus);
     } else if (smartstatus) {
       smartstatus = false
       message.channel.send("smart mode off!");
-      console.log(smartstatus);
     };
   } else if (!smartstatus) {
     if (msglow.startsWith(prefixbot)) {
@@ -77,7 +75,8 @@ client.on('message', message => {
     let msgsplit = msglow.split(" ");
     let lastsentence = msgsplit[msgsplit.length-1]
     console.log(!smart.name.indexOf(lastsentence) == -1);
-    if (!smart.name.indexOf(lastsentence) == -1) {
+    const naming = smart.name
+    if (!naming.indexOf(lastsentence) == -1) {
       let search = msgsplit.pop();
       for (b in search) {
         if (!greet.indexOf(b) == -1) {
