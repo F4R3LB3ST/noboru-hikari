@@ -3,6 +3,7 @@ const client = new Discord.Client();
 var fs = require('fs');
 const command = require('./command.json');
 var smart = JSON.parse(fs.readFileSync('./smart.json', 'utf8'));
+const smartread = require('./smart.json')
 const prefix = process.env.prefix;
 const prefixbot = process.env.prefixbot;
 const greet = command.greet;
@@ -74,9 +75,8 @@ client.on('message', message => {
   } else if (smartstatus) {
     let msgsplit = msglow.split(" ");
     let lastsentence = msgsplit[msgsplit.length-1]
-    console.log(!smart.name.indexOf(lastsentence) == -1);
-    const naming = smart.name
-    if (!naming.indexOf(lastsentence) == -1) {
+    console.log(!smart.name.indexOf(lastsentence) == -1)
+    if (!smartread.name.indexOf(lastsentence) == -1) {
       let search = msgsplit.pop();
       for (b in search) {
         if (!greet.indexOf(b) == -1) {
