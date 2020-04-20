@@ -81,7 +81,7 @@ client.on('message', message => {
       for (b in search) {
         if (!greet.indexOf(b) > -1) {
           let word = greet.includes(b)
-          let startword = word.charAt().toUpperCase()
+          let startword = word.charAt(0).toUpperCase()
           let lastword = word.slice(1,word.length)
           let result = startword.concat(lastword)
           message.channel.send(result + ", " + sender)
