@@ -76,6 +76,7 @@ client.on('message', message => {
   } else if (smartstatus) {
     let msgsplit = msglow.split(" ");
     let lastsentence = msgsplit[msgsplit.length]
+    console.log(lastsentence);
     if (!smart.name.indexOf(lastsentence) == -1) {
       let search = msgsplit.pop();
       for (b in search) {
@@ -86,9 +87,9 @@ client.on('message', message => {
           let result = startword.concat(lastword)
           message.channel.send(result + ", " + sender)
           break;
-        } else if (msglow.includes("name")) {
-                message.channel.send("My Name is Noboru Hikari")
-          }
+        }
+      }; else if (msglow.includes("name")) {
+              message.channel.send("My Name is Noboru Hikari")
         };
       } else if (msglow.startsWith("n-")) {
         message.channel.send("can't accept commands, re-enable it with n-smart")
