@@ -21,7 +21,6 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-
   var sender = message.author.username;
   var msglow = message.content.toLowerCase();
 
