@@ -43,7 +43,7 @@ client.on('message', message => {
     };
   } else if (!smart.status && !msglow == "n-smart") {
     if (msglow.includes(prefix)) {
-      for (let i = 0; i <= greet.length && msglow.match(greet[i]); i++) {
+      for (let i = 0; i <= greet.length && msglow.includes(greet[i]); i++) {
           let startword = greet[i].charAt().toUpperCase()
           let lastword = greet[i].slice(1,greet[i].length)
           let result = startword.concat(lastword)
@@ -56,14 +56,26 @@ client.on('message', message => {
     } else if (msglow.startsWith(prefixbot)) {
         if (msglow.includes("help")) {
           message.channel.send("```n-ping ->    pong!\nn-help ->    command list\nn-CoV  ->    no, just no.\nn-jvd  ->    JoJo vs Dio custom dialogue (incomplete)```")
-    } else if (msglow.includes("ping")) {
+        } else if (msglow.includes("ping")) {
           message.channel.send("pong!")
-    } else if (msglow.includes("cov")) {
+        } else if (msglow.includes("cov")) {
           message.channel.send("instead of making jokes about SARS-2, why you guys not donate to the charity to help the healthcare")
           message.channel.send("https://www.globalgiving.org/projects/coronavirus-relief-fund/")
-    } /* else if (msglow.includes("jvd")) {
-      var playerdata = msglow.replace("n-jvd ","");
-        if (playerdata.includes(" | ") && playerdata.includes("<") && playerdata.includes(">")) {
+        } else if (msglow.includes("purge")) {
+                if (message.member.hasPermission('ADMINISTRATOR')) {
+                  message.channel.send("how many messages you wanna delete ?")
+                  const collector = new Discord.MessageCollector(message.channel, m => m.author.id == message.author.id, { time: 10000 });
+                  collector.on('collect', message => {
+                      message.channel.bulkDelete(message).then(() => {
+                      message.channel.send(`Deleted ${message} message(s)`).then(msg => msg.delete(3000))
+                    });
+                  })
+              } else {
+                  message.channel.send("You don't have the authority to do that")
+              };
+        } /* else if (msglow.includes("jvd")) {
+          var playerdata = msglow.replace("n-jvd ","");
+          if (playerdata.includes(" | ") && playerdata.includes("<") && playerdata.includes(">")) {
             let player1 = message.mentions.users.first().username;
             let player2 = message.mentions.users.last().username;
             let result = "";
@@ -83,19 +95,7 @@ client.on('message', message => {
       } else {
             message.channel.send("mention 2 members and separate it with ' | ', example : 'n-jvd Jotaro | Dio'")
           } */
-    } else if (msglow.localeCompare("n-purge") == 0) {
-            if (message.member.hasPermission('ADMINISTRATOR')) {
-              message.channel.send("how many messages you wanna delete ?")
-              const collector = new Discord.MessageCollector(message.channel, m => m.author.id == message.author.id, { time: 10000 });
-              collector.on('collect', message => {
-                  message.channel.bulkDelete(message).then(() => {
-                  message.channel.send(`Deleted ${message} message(s)`).then(msg => msg.delete(3000))
-                });
-              })
-          } else {
-              message.channel.send("You don't have the authority to do that")
-          };
-    };
+    }
   };
 });
 
