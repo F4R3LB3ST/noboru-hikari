@@ -35,8 +35,9 @@ client.on('message', message => {
           } else {
             smart.status = smartstatus
             message.channel.send("smart mode on!");
-         });
-    } else if (smartstatus) {
+         };
+       })
+     } else if (smartstatus) {
       smartstatus = false
       fs.writeFile('./userdata.json', JSON.stringify(smart), (err) =>{
           if (err) {
@@ -46,7 +47,7 @@ client.on('message', message => {
             smart.status = smartstatus
             message.channel.send("smart mode off!");
          });
-    };
+      };
   } else if (!smartstatus) {
     if (msglow.startsWith(prefixbot)) {
         if (msglow.includes("help")) {
