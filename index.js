@@ -46,6 +46,7 @@ client.on('message', message => {
           } else {
             smart.status = smartstatus
             message.channel.send("smart mode off!");
+          }
          });
       };
   } else if (!smartstatus) {
