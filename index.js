@@ -9,7 +9,7 @@ const prefixbot = process.env.prefixbot;
 const greet = command.greet;
 const welcome = command.welcome;
 const pokedesc = command.pokedesc;
-var smartstatus = false
+var smartstatus = smart.status
 
 client.on('ready', () => {
   client.user.setStatus('online', "n-help")
@@ -28,10 +28,24 @@ client.on('message', message => {
   if (msglow == "n-smart") {
     if (!smartstatus) {
       smartstatus = true
-      message.channel.send("smart mode on!");
+      fs.writeFile('./userdata.json', JSON.stringify(smart), (err) =>{
+          if (err) {
+            console.error(err)
+            message.channel.send("can't activate smart mode")
+          } else {
+            smart.status = smartstatus
+            message.channel.send("smart mode on!");
+         };
     } else if (smartstatus) {
       smartstatus = false
-      message.channel.send("smart mode off!");
+      fs.writeFile('./userdata.json', JSON.stringify(smart), (err) =>{
+          if (err) {
+            console.error(err)
+            message.channel.send("can't de-activate smart mode")
+          } else {
+            smart.status = smartstatus
+            message.channel.send("smart mode off!");
+         };
     };
   } else if (!smartstatus) {
     if (msglow.startsWith(prefixbot)) {
