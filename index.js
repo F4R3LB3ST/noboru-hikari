@@ -36,7 +36,7 @@ client.on('message', message => {
             smart.status = smartstatus
             message.channel.send("smart mode on!");
          };
-       })
+       });
      } else if (smartstatus) {
       smartstatus = false
       fs.writeFile('./userdata.json', JSON.stringify(smart), (err) =>{
