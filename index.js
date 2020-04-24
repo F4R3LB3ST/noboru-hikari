@@ -108,12 +108,19 @@ client.on('message', message => {
           let result = startword.concat(lastword)
           message.channel.send(result + ", " + sender)
           break;
+        } else if (search[b] == "what") {
+            if (search[b+1] == "are") {
+              if (search[b+2] == "you") ) {
+                message.channel.send("I am a bot")
+                break;
+            } else if (search[b+3] == "doing") {
+                message.channel.send(`I am not doing anything`)
+                break;
+            }
+          }
         }
       };
-      if (msglow.includes("name")) {
-              message.channel.send("My Name is Noboru Hikari")
-        };
-      } else if (msglow.startsWith("n-")) {
+      if (msglow.startsWith("n-")) {
         message.channel.send("can't accept commands, re-enable it with n-smart")
       };
     };
