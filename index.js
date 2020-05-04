@@ -110,7 +110,7 @@ client.on('message', message => {
           break;
         } else if (search[b] == "what") {
             if (search[b+1] == "are") {
-              if (search[b+2] == "you") ) {
+              if (search[b+2] == "you") {
                 message.channel.send("I am a bot")
                 break;
             } else if (search[b+3] == "doing") {
