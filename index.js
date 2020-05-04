@@ -123,8 +123,7 @@ client.on('message', message => {
       if (msglow.startsWith("n-")) {
         message.channel.send("can't accept commands, re-enable it with n-smart")
       };
-    };
-});
+    });
 
 client.on('guildMemberAdd', member => {
   const channel = member.guild.channels.find(ch => ch.name === 'member-log');
