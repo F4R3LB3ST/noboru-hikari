@@ -10,7 +10,7 @@ const greet = command.greet;
 const welcome = command.welcome;
 const pokedesc = command.pokedesc;
 var smartstatus = smart.status
-const changelog = new Discord.MessageEmbed()
+/*const changelog = new Discord.MessageEmbed()
    .setColor('#0099ff')
    .setTitle('Changelog')
    .setDescription("Let's see what my developer is up to :grin:")
@@ -18,7 +18,7 @@ const changelog = new Discord.MessageEmbed()
    { name: 'Version - 1.0', value: '- n-smart got is not avaiable atm :disappointed:\n- added changelog :smile:\nmore update soon! ^_^' },
   )
    .setTimestamp()
-
+*/
 client.on('ready', () => {
   client.user.setStatus('online', "n-help")
   client.user.setPresence({
@@ -64,7 +64,7 @@ client.on('message', message => {
         } else if (msglow.includes("ping")) {
           message.channel.send("pong!")
         } else if (msglow.includes("changelog")) {
-          channel.send(changelog);
+          channel.channel.send('- n-smart got is not avaiable atm :disappointed:\n- added changelog :smile:\nmore update soon! ^_^';
         } else if (msglow.includes("purge")) {
                 if (message.member.hasPermission('ADMINISTRATOR')) {
                   message.channel.send("how many messages you wanna delete ?")
