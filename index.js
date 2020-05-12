@@ -64,7 +64,7 @@ client.on('message', message => {
         } else if (msglow.includes("ping")) {
           message.channel.send("pong!")
         } else if (msglow.includes("changelog")) {
-          message.channel.send('- n-smart got is not avaiable atm :disappointed:\n- added changelog :smile:\nmore update soon! ^_^');
+          message.channel.send('```- n-smart is not avaiable atm :disappointed:\n- added changelog :smile:\nmore update soon! ^_^```');
         } else if (msglow.includes("purge")) {
                 if (message.member.hasPermission('ADMINISTRATOR')) {
                   message.channel.send("how many messages you wanna delete ?")
