@@ -10,6 +10,14 @@ const greet = command.greet;
 const welcome = command.welcome;
 const pokedesc = command.pokedesc;
 var smartstatus = smart.status
+const changelog = new Discord.MessageEmbed()
+   .setColor('#0099ff')
+   .setTitle('Changelog')
+   .setDescription("Let's see what my developer is up to :grin:")
+   .addFields(
+   { name: 'Version - 1.0', value: '- n-smart got is not avaiable atm :disappointed:\n- added changelog :smile:\nmore update soon! ^_^' },
+  )
+   .setTimestamp()
 
 client.on('ready', () => {
   client.user.setStatus('online', "n-help")
@@ -52,18 +60,10 @@ client.on('message', message => {
   } else if (!smartstatus) {
     if (msglow.startsWith(prefixbot)) {
         if (msglow.includes("help")) {
-          message.channel.send("```n-ping\t->\tPong!\nn-help\t->\tCommand list\nn-changelog\t->\tSee the change that happened on the bot\nn-jvd\t->\tJoJo vs Dio custom dialogue (incomplete)\nn-purge\t->\tSnap! half of the chat is gone...```")
+          message.channel.send("```n-ping\t\t-> Pong!\nn-help\t\t-> Command list\nn-changelog\t-> See the change that happened on the bot\nn-jvd\t\t-> JoJo vs Dio custom dialogue (incomplete)\nn-purge\t\t-> Snap! half of the chat is gone...```")
         } else if (msglow.includes("ping")) {
           message.channel.send("pong!")
         } else if (msglow.includes("changelog")) {
-          const changelog = new Discord.MessageEmbed()
-	           .setColor('#0099ff')
-	           .setTitle('Changelog')
-	           .setDescription("Let's see what my developer is up to :grin:")
-	           .addFields(
-		         { name: 'Version - 1.0', value: '- n-smart got is not avaiable atm :disappointed:\n- added changelog :smile:\nmore update soon! ^_^' },
-            )
-	           .setTimestamp()
           channel.send(changelog);
         } else if (msglow.includes("purge")) {
                 if (message.member.hasPermission('ADMINISTRATOR')) {
