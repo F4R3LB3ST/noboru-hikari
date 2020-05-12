@@ -15,7 +15,7 @@ client.on('ready', () => {
   client.user.setStatus('online', "n-help")
   client.user.setPresence({
         game: {
-            name: 'with my father',
+            name: 'n-help',
         }
     });
   console.log('I am ready!');
@@ -52,12 +52,19 @@ client.on('message', message => {
   } else if (!smartstatus) {
     if (msglow.startsWith(prefixbot)) {
         if (msglow.includes("help")) {
-          message.channel.send("```n-ping  -> Pong!\nn-help  -> Command list\nn-CoV   -> No, just no.\nn-jvd   -> JoJo vs Dio custom dialogue (incomplete)\nn-purge -> Snap! half of the chat is gone...\nn-smart -> turn on smart mode (can't accept command)```")
+          message.channel.send("```n-ping\t->\tPong!\nn-help\t->\tCommand list\nn-changelog\t->\tSee the change that happened on the bot\nn-jvd\t->\tJoJo vs Dio custom dialogue (incomplete)\nn-purge\t->\tSnap! half of the chat is gone...```")
         } else if (msglow.includes("ping")) {
           message.channel.send("pong!")
-        } else if (msglow.includes("cov")) {
-          message.channel.send("instead of making jokes about SARS-2, why you guys not donate to the charity to help the healthcare")
-          message.channel.send("https://www.globalgiving.org/projects/coronavirus-relief-fund/")
+        } else if (msglow.includes("changelog")) {
+          const changelog = new Discord.MessageEmbed()
+	           .setColor('#0099ff')
+	           .setTitle('Changelog')
+	           .setDescription("Let's see what my developer is up to :grin:")
+	           .addFields(
+		         { name: 'Version - 1.0', value: '- n-smart got is not avaiable atm :disappointed:\n- added changelog :smile:\nmore update soon! ^_^' },
+            )
+	           .setTimestamp()
+          channel.send(changelog);
         } else if (msglow.includes("purge")) {
                 if (message.member.hasPermission('ADMINISTRATOR')) {
                   message.channel.send("how many messages you wanna delete ?")
@@ -94,36 +101,7 @@ client.on('message', message => {
           } */
     }
   } else if (smartstatus) {
-    let msgsplit = msglow.split(" ");
-    let lastsentence = msgsplit[msgsplit.length-1]
-    if (smart.name.indexOf(lastsentence) > -1) {
-      let search = msgsplit.pop();
-      for (b in search) {
-        console.log(b);
-        if (msglow.includes(greet[b])) {
-          let word = greet[b]
-          console.log(word);
-          let startword = word.charAt(0).toUpperCase()
-          let lastword = word.slice(1,word.length)
-          let result = startword.concat(lastword)
-          message.channel.send(result + ", " + sender)
-          break;
-        } else if (search[b] == "what") {
-            if (search[b+1] == "are") {
-              if (search[b+2] == "you") {
-                message.channel.send("I am a bot")
-                break;
-            } else if (search[b+3] == "doing") {
-                message.channel.send(`I am not doing anything`)
-                break;
-            }
-          }
-        }
-      };
-      if (msglow.startsWith("n-")) {
-        message.channel.send("can't accept commands, re-enable it with n-smart")
-      };
-    };
+
 };
 });
 
