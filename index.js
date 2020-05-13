@@ -69,15 +69,15 @@ client.on('message', message => {
           message.channel.send('```- n-smart is not avaiable atm :(\n- added changelog :D\nmore update soon! ^_^```');
         } else if (msglow.includes("use")) {
           message.channel.send('```- you can start with n-help\n- if you want to send a suggestion type n-suggest```');
-        } else if (msglow.includes("suggest")) {
+        } /*else if (msglow.includes("suggest")) {
           message.channel.send("`if you can suggest something, suggest a good one, don't say rude words to my developer, i can scan ur message *pout*. What are going to write ?`");
           collectorsmart.on('collect', message => {
-            message.331688530248073218.send
+            message.331688530248073218.send();
               message.channel.bulkDelete(message).then(() => {
               message.channel.send(`Deleted ${message} message(s)`).then(msg => msg.delete(3000))
             });
           });
-        } else if (msglow.includes("purge")) {
+        }*/ else if (msglow.includes("purge")) {
                 if (message.member.hasPermission('ADMINISTRATOR')) {
                   message.channel.send("how many messages you wanna delete ?")
                   const collectoradmin = new Discord.MessageCollector(message.channel, m => m.author.id == message.author.id, { time: 10000 });
