@@ -124,7 +124,7 @@ client.on('message', message => {
         if (a == "name") {
           message.channel.send("my name is noboru")
         } else {
-          message.channel.send(`yes, ${name}`)
+          message.channel.send(`yes, ${name} here`)
         }
       }
     }
