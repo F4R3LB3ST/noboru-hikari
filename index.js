@@ -11,7 +11,6 @@ const welcome = command.welcome;
 const pokedesc = command.pokedesc;
 var smartstatus = smart.status;
 const myname = smart.name;
-const collectorsmart = new Discord.MessageCollector(message.channel, m => m.author.id == message.author.id, { time: 60000 });
 /*const changelog = new Discord.MessageEmbed()
    .setColor('#0099ff')
    .setTitle('Changelog')
@@ -35,6 +34,7 @@ client.on('ready', () => {
 client.on('message', message => {
   var sender = message.author.username;
   var msglow = message.content.toLowerCase();
+  const collectorsmart = new Discord.MessageCollector(message.channel, m => m.author.id == message.author.id, { time: 60000 });
 
   if (msglow == "n-smart") {
     if (!smartstatus) {
