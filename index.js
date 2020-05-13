@@ -116,14 +116,16 @@ client.on('message', message => {
   } else if (smartstatus) {
     msgsplit = msglow.split(" ");
     if (myname.includes(msgsplit[msgsplit.length-1])) {
-      switch (msglow) {
-        case "what's your name":
-        case "who are you":
-        case "what is your name":
-          messagel.channel.send("my name is Noboru Hikari");
-          break;
-        default:
-          message.channel.send("sorry, i don't understand");
+      var name = msgsplit[msgsplit.length-1];
+      var fletter = name.charAt(0).toUpperCase();
+      var lletter = name.slice(1);
+      name = fletter.concat(lletter);
+      for (var a in msgsplit) {
+        if (a == "name") {
+          message.channel.send("my name is noboru")
+        } else {
+          message.channel.send(`yes, ${name}`)
+        }
       }
     }
 }
