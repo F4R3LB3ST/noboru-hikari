@@ -21,6 +21,7 @@ const collectorsmart = new Discord.MessageCollector(message.channel, m => m.auth
   )
    .setTimestamp()
 */
+
 client.on('ready', () => {
   client.user.setStatus('online', "n-help")
   client.user.setPresence({
@@ -45,8 +46,8 @@ client.on('message', message => {
           } else {
             smart.status = smartstatus
             message.channel.send("smart mode on!");
-         };
-       });
+         }
+       })
      } else if (smartstatus) {
       smartstatus = false
       fs.writeFile('./userdata.json', JSON.stringify(smart), (err) =>{
@@ -57,8 +58,8 @@ client.on('message', message => {
             smart.status = smartstatus
             message.channel.send("smart mode off!");
           }
-         });
-      };
+         })
+      }
   } else if (!smartstatus) {
     if (msglow.startsWith(prefixbot)) {
         if (msglow.includes("help")) {
@@ -84,11 +85,11 @@ client.on('message', message => {
                   collectoradmin.on('collect', message => {
                       message.channel.bulkDelete(message).then(() => {
                       message.channel.send(`Deleted ${message} message(s)`).then(msg => msg.delete(3000))
-                    });
+                    })
                   })
               } else {
                   message.channel.send("You don't have the authority to do that")
-              };
+              }
         } /* else if (msglow.includes("jvd")) {
           var playerdata = msglow.replace("n-jvd ","");
           if (playerdata.includes(" | ") && playerdata.includes("<") && playerdata.includes(">")) {
@@ -115,16 +116,24 @@ client.on('message', message => {
   } else if (smartstatus) {
     msgsplit = msglow.split(" ");
     if (myname.includes(msgsplit[msgsplit.length-1])) {
-      var a = msgsplit.pop();
+      switch (msglow) {
+        case "what's your name":
+        case "who are you":
+        case "what is your name":
+          messagel.channel.send("my name is Noboru Hikari");
+          break;
+        default:
+          message.channel.send("sorry, i don't understand");
+      }
     }
-};
-});
+}
+})
 
 client.on('guildMemberAdd', member => {
   const channel = member.guild.channels.find(ch => ch.name === 'member-log');
   if (!channel) return;
   channel.send(eval(welcome[Math.floor(Math.random() * 4)]));
-});
+})
 
 
 
