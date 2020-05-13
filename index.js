@@ -122,9 +122,9 @@ client.on('message', message => {
       name = fletter.concat(lletter);
       for (var a in msgsplit) {
         if (a == "name") {
-          message.channel.send("my name is noboru")
+          message.channel.send("My name is noboru")
         } else {
-          message.channel.send(`yes, ${name} here`)
+          message.channel.send(`Yes, ${name} here`)
         }
       }
     }
