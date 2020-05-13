@@ -9,7 +9,9 @@ const prefixbot = process.env.prefixbot;
 const greet = command.greet;
 const welcome = command.welcome;
 const pokedesc = command.pokedesc;
-var smartstatus = smart.status
+var smartstatus = smart.status;
+const myname = smart.name;
+const collectorsmart = new Discord.MessageCollector(message.channel, m => m.author.id == message.author.id, { time: 60000 });
 /*const changelog = new Discord.MessageEmbed()
    .setColor('#0099ff')
    .setTitle('Changelog')
@@ -60,16 +62,26 @@ client.on('message', message => {
   } else if (!smartstatus) {
     if (msglow.startsWith(prefixbot)) {
         if (msglow.includes("help")) {
-          message.channel.send("```n-ping\t\t-> Pong!\nn-help\t\t-> Command list\nn-changelog\t-> See the change that happened on the bot\nn-jvd\t\t-> JoJo vs Dio custom dialogue (incomplete)\nn-purge\t\t-> Snap! half of the chat is gone...```")
+          message.channel.send("```n-ping\t\t-> Pong!\nn-help\t\t-> Command list\nn-changelog    -> See the change that happened on the bot\nn-jvd\t\t\t-> JoJo vs Dio custom dialogue (incomplete)\nn-purge\t\t-> Snap! half of the chat is gone...```")
         } else if (msglow.includes("ping")) {
           message.channel.send("pong!")
         } else if (msglow.includes("changelog")) {
           message.channel.send('```- n-smart is not avaiable atm :(\n- added changelog :D\nmore update soon! ^_^```');
+        } else if (msglow.includes("use")) {
+          message.channel.send('```- you can start with n-help\n- if you want to send a suggestion type n-suggest```');
+        } else if (msglow.includes("suggest")) {
+          message.channel.send("`if you can suggest something, suggest a good one, don't say rude words to my developer, i can scan ur message *pout*. What are going to write ?`");
+          collectorsmart.on('collect', message => {
+            message.331688530248073218.send
+              message.channel.bulkDelete(message).then(() => {
+              message.channel.send(`Deleted ${message} message(s)`).then(msg => msg.delete(3000))
+            });
+          });
         } else if (msglow.includes("purge")) {
                 if (message.member.hasPermission('ADMINISTRATOR')) {
                   message.channel.send("how many messages you wanna delete ?")
-                  const collector = new Discord.MessageCollector(message.channel, m => m.author.id == message.author.id, { time: 10000 });
-                  collector.on('collect', message => {
+                  const collectoradmin = new Discord.MessageCollector(message.channel, m => m.author.id == message.author.id, { time: 10000 });
+                  collectoradmin.on('collect', message => {
                       message.channel.bulkDelete(message).then(() => {
                       message.channel.send(`Deleted ${message} message(s)`).then(msg => msg.delete(3000))
                     });
@@ -101,7 +113,10 @@ client.on('message', message => {
           } */
     }
   } else if (smartstatus) {
-
+    msgsplit = msglow.split(" ");
+    if (myname.includes(msgsplit[msgsplit.length-1])) {
+      var a = msgsplit.pop();
+    }
 };
 });
 
