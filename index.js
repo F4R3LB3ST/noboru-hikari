@@ -128,6 +128,7 @@ client.on('message', message => {
               message.channel.send("My name is Noboru Hikari");
               break;
             }
+            break;
           }
         } else if (myname.includes(msgsplit[a])) {
           message.channel.send(`Yes, ${name} here`);
