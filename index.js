@@ -121,18 +121,20 @@ client.on('message', message => {
       var lletter = name.slice(1);
       name = fletter.concat(lletter);
       for (var a in msgsplit) {
-        if (a == "name") {
-          message.channel.send("My name is Noboru Hikari")
-        } else if (a == "what") {
+        if (a == "what") {
           msgsplit.shift();
           for (var b in msgsplit) {
             if (b == "name") {
-              message.channel.send("My name is Noboru Hikari")
+              message.channel.send("My name is Noboru Hikari");
               break;
             }
           }
-        } else if (a == name) {
-          message.channel.send(`Yes, ${name} here`)
+        } else if (a == "name") {
+          message.channel.send("My name is Noboru Hikari");
+          break;
+        } else if (myname.includes(msgsplit)) {
+          message.channel.send(`Yes, ${name} here`);
+          break;
         }
       }
     }
