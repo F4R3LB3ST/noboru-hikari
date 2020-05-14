@@ -129,7 +129,7 @@ client.on('message', message => {
               break;
             }
           }
-        } else if (msgsplit == myname[a]) {
+        } else if (myname.includes(msgsplit[a])) {
           message.channel.send(`Yes, ${name} here`);
           break;
         } else {
