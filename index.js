@@ -134,6 +134,7 @@ client.on('message', message => {
           break;
         } else {
           message.channel.send("Sorry, i couldn't understand, maybe i can't read your sentence")
+          break;
         }
         console.log(a);
       }
