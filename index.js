@@ -134,11 +134,9 @@ client.on('message', message => {
             }
           } else if (msgsplit[a] == "how") {
             msgsplit.shift();
-            console.log("ok");
             for (var b in msgsplit) {
               if (msgsplit[b] == "are") {
                 msgsplit.shift();
-                console.log("ok");
                 for (var c in msgsplit) {
                   if (msgsplit[c] == "you") {
                     message.channel.send("I'm fine");
