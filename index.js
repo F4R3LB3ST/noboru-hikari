@@ -129,7 +129,7 @@ client.on('message', message => {
               message.channel.send("My name is Noboru Hikari")
             }
           }
-        } else {
+        } else if (a == name) {
           message.channel.send(`Yes, ${name} here`)
         }
       }
