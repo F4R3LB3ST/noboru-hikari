@@ -67,7 +67,7 @@ client.on('message', message => {
         } else if (msglow.includes("ping")) {
           message.channel.send("pong!")
         } else if (msglow.includes("changelog")) {
-          message.channel.send('```- n-smart is not avaiable atm :(\n- added changelog :D\nmore update soon! ^_^```');
+          message.channel.send('```- n-smart is incomplete :(\n- try to talk with Noboru :D\nmore update soon! ^_^\n- The Developer (probably)```');
         } else if (msglow.includes("use")) {
           message.channel.send('```- you can start with n-help\n- if you want to send a suggestion type n-suggest```');
         } /*else if (msglow.includes("suggest")) {
