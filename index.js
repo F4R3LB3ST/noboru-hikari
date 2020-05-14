@@ -136,6 +136,7 @@ client.on('message', message => {
           message.channel.send(`Yes, ${name} here`);
           break;
         }
+        message.channel.send(a);
       }
     }
 }
