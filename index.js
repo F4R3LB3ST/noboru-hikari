@@ -136,9 +136,8 @@ client.on('message', message => {
             message.channel.send(`Yes, ${name} here`);
             done = false;
             break;
-          } else {
+          } else if (done) {
             message.channel.send("Sorry, i couldn't understand, maybe i can't read your sentence")
-            done = false;
             break;
           }
           console.log(a);
