@@ -133,7 +133,9 @@ client.on('message', message => {
               }
             }
           } else if (greet.includes(msgsplit[a])) {
-            message.channel.send(greet[Math.floor(Math.random() * 5)] + message.author.username);
+            message.channel.send(`${greet[Math.floor(Math.random() * 5)]}  ${message.author.username}`);
+            done = true
+            break;
           } else if (done) {
             message.channel.send("Sorry, i couldn't understand, maybe i can't read your sentence");
             break;
