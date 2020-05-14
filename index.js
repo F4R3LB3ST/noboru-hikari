@@ -129,12 +129,11 @@ client.on('message', message => {
               break;
             }
           }
-        } else if (msgsplit[a] == "name") {
-          message.channel.send("My name is Noboru Hikari");
-          break;
-        } else (myname.includes(msgsplit[a]) {
+        } else if (msgsplit == myname[a]) {
           message.channel.send(`Yes, ${name} here`);
           break;
+        } else {
+          message.channel.send("Sorry, i couldn't understand, maybe i can't read your sentence")
         }
         console.log(a);
       }
