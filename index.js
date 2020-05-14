@@ -132,7 +132,7 @@ client.on('message', message => {
         } else if (a == "name") {
           message.channel.send("My name is Noboru Hikari");
           break;
-        } else if (myname.includes(msgsplit)) {
+        } else if (myname.includes(a)) {
           message.channel.send(`Yes, ${name} here`);
           break;
         }
