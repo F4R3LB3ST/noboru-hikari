@@ -132,6 +132,20 @@ client.on('message', message => {
                 break;
               }
             }
+          } else if (msgsplit[a] == "how") {
+            msgsplit.shift();
+            for (var b in msgsplit) {
+              if (msgsplit[b] == "are") {
+                msgsplit.shift();
+                for (var c in msgsplit) {
+                  if (msgsplit[c] == "you") {
+                    message.channel.send("I'm fine");
+                    done = true
+                    break;
+                  }
+                }
+              }
+            }
           } else if (greet.includes(msgsplit[a])) {
             message.channel.send(`${greet[Math.floor(Math.random() * 5)]}, ${message.author.username}`);
             done = true
