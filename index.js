@@ -122,7 +122,7 @@ client.on('message', message => {
       name = fletter.concat(lletter);
       var done = false
       for (var a in msgsplit) {
-        if (!done) {
+        if (!done && !message.author.bot) {
           if (msgsplit[a] == "what") {
             msgsplit.shift();
             for (var b in msgsplit) {
