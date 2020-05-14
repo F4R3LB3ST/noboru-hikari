@@ -6,7 +6,7 @@ var smart = JSON.parse(fs.readFileSync('./smart.json', 'utf8'));
 const smartread = require('./smart.json')
 const prefix = process.env.prefix;
 const prefixbot = process.env.prefixbot;
-const greet = command.greet;
+const greet = smart.greet;
 const welcome = command.welcome;
 const pokedesc = command.pokedesc;
 var smartstatus = smart.status;
@@ -132,6 +132,8 @@ client.on('message', message => {
                 break;
               }
             }
+          } else if (greet.includes(msgsplit[a])) {
+            message.channel.send(eval(greet[Math.floor(Math.random() * 5)]) + message.author.username);
           } else if (done) {
             message.channel.send("Sorry, i couldn't understand, maybe i can't read your sentence");
             break;
