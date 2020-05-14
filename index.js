@@ -132,12 +132,12 @@ client.on('message', message => {
                 break;
               }
             }
+          } else if (done) {
+            message.channel.send("Sorry, i couldn't understand, maybe i can't read your sentence");
+            break;
           } else if (myname.includes(msgsplit[a])) {
             message.channel.send(`Yes, ${name} here`);
             done = true;
-            break;
-          } else if (done) {
-            message.channel.send("Sorry, i couldn't understand, maybe i can't read your sentence");
             break;
           }
           console.log(a);
