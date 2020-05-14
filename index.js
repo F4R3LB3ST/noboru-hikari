@@ -121,22 +121,22 @@ client.on('message', message => {
       var lletter = name.slice(1);
       name = fletter.concat(lletter);
       for (var a in msgsplit) {
-        if (a == "what") {
+        if (msgsplit[a] == "what") {
           msgsplit.shift();
           for (var b in msgsplit) {
-            if (b == "name") {
+            if (msgsplit[b] == "name") {
               message.channel.send("My name is Noboru Hikari");
               break;
             }
           }
-        } else if (a == "name") {
+        } else if (msgsplit[a] == "name") {
           message.channel.send("My name is Noboru Hikari");
           break;
-        } else if (myname.includes(a)) {
+        } else (myname.includes(msgsplit[a]) {
           message.channel.send(`Yes, ${name} here`);
           break;
         }
-        message.channel.send(a);
+        console.log(a);
       }
     }
 }
