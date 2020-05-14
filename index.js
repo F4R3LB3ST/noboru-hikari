@@ -126,10 +126,29 @@ client.on('message', message => {
           if (msgsplit[a] == "what") {
             msgsplit.shift();
             for (var b in msgsplit) {
-              if (msgsplit[b] == "name") {
-                message.channel.send("My name is Noboru Hikari");
-                done = true;
-                break;
+              if (msgsplit[b] == "is") {
+                msgsplit.shift();
+                for (var c in msgsplit) {
+                  if (msgsplit[c] == "your") {
+                    msgsplit.shift();
+                    for (var d in msgsplit) {
+                      if (msgsplit[d] == "name") {
+                        message.channel.send("My name is Noboru Hikari");
+                        done = true;
+                        break;
+                      }
+                    }
+                  }
+                }
+              } else if (msgsplit[b] == "are") {
+                msgsplit.shift();
+                for (var c in msgsplit) {
+                  if (msgsplit[c] == "you") {
+                    message.channel.send("I am a bot");
+                    done = true;
+                    break;
+                  }
+                }
               }
             }
           } else if (msgsplit[a] == "how") {
@@ -141,6 +160,20 @@ client.on('message', message => {
                   if (msgsplit[c] == "you") {
                     message.channel.send("I'm fine");
                     done = true
+                    break;
+                  }
+                }
+              }
+            }
+          } else if (msgsplit[a] == "i") {
+            msgsplit.shift();
+            for (var b in msgsplit) {
+              if (msgsplit[b] == "love") {
+                msgsplit.shift();
+                for (var c in msgsplit) {
+                  if (msgsplit[c] == "you") {
+                    message.channel.send("I'm sorry, i can't feel anything from you. I'll have feelings in the next update, until then wait for me!");
+                    done = true;
                     break;
                   }
                 }
