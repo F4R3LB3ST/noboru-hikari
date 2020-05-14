@@ -120,24 +120,29 @@ client.on('message', message => {
       var fletter = name.charAt(0).toUpperCase();
       var lletter = name.slice(1);
       name = fletter.concat(lletter);
+      var done = true
       for (var a in msgsplit) {
-        if (msgsplit[a] == "what") {
-          msgsplit.shift();
-          for (var b in msgsplit) {
-            if (msgsplit[b] == "name") {
-              message.channel.send("My name is Noboru Hikari");
-              break;
+        if (done) {
+          if (msgsplit[a] == "what") {
+            msgsplit.shift();
+            for (var b in msgsplit) {
+              if (msgsplit[b] == "name") {
+                message.channel.send("My name is Noboru Hikari");
+                done = false;
+                break;
+              }
             }
+          } else if (myname.includes(msgsplit[a])) {
+            message.channel.send(`Yes, ${name} here`);
+            done = false;
+            break;
+          } else {
+            message.channel.send("Sorry, i couldn't understand, maybe i can't read your sentence")
+            done = false;
             break;
           }
-        } else if (myname.includes(msgsplit[a])) {
-          message.channel.send(`Yes, ${name} here`);
-          break;
-        } else {
-          message.channel.send("Sorry, i couldn't understand, maybe i can't read your sentence")
-          break;
+          console.log(a);
         }
-        console.log(a);
       }
     }
 }
