@@ -99,11 +99,15 @@ client.on('message', message => {
                     message.channel.send(`Deleted ${message} messages`).then(msg => msg.delete(3000))
                     })
                   } else {
-                    message.channel.send("Are you going to delete thin air... ?").then(msg => msg.delete(3000))
+                    message.channel.send("Are you going to delete thin air... ?").then(msg => {
+                      msg.delete(3000)
+                      collectoradmin.end();
+                    })
                   }
                     })
               } else {
                   message.channel.send("You don't have the authority to do that")
+                  break;
               }
         } /* else if (msglow.includes("jvd")) {
           var playerdata = msglow.replace("n-jvd ","");
