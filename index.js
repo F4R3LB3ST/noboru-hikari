@@ -73,6 +73,7 @@ client.on('message', message => {
             console.error(err)
             message.channel.send("can't activate smart mode")
           } else {
+            smartstatus[guild.id] = guild.id
             smartstatus[guild.id].smartstatus = true
             message.channel.send("smart mode on!");
          }
