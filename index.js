@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const guild = new Discord.Guild();
+const Guild = new Discord.Guild();
 var fs = require('fs');
 const command = require('./command.json');
 const smart = require('./smart.json')
@@ -39,18 +39,18 @@ function Capitalize(string) {
   return result ;
 }
 
-client.on('guildCreate', guild) => {
+client.on('guildCreate', guild => {
   fs.writeFile('./guilddata.json', JSON.stringify(smartstatus), (err) =>{
       if (err) {
         console.error(err)
         message.channel.send("can't activate smart mode")
       } else {
-        smartstatus[guild.id] = {
+        smartstatus[Guild.id] = {
           smartstatus: false
         }
      }
    })
-}
+})
 
 client.on('message', message => {
   var sender = message.author.username;
@@ -58,13 +58,13 @@ client.on('message', message => {
   const collectorsmart = new Discord.MessageCollector(message.channel, m => m.author.id == message.author.id, { time: 60000 });
 
   if (msglow == "n-smart") {
-      if (!guilddata[guild.id].smartstatus) {
+      if (!guilddata[Guild.id].smartstatus) {
         fs.writeFile('./guilddata.json', JSON.stringify(smartstatus), (err) =>{
             if (err) {
               console.error(err)
               message.channel.send("can't activate smart mode")
             } else {
-              smartstatus[guild.id].smartstatus = true
+              smartstatus[Guild.id].smartstatus = true
               message.channel.send("smart mode on!");
            }
          })
@@ -74,13 +74,13 @@ client.on('message', message => {
               console.error(err)
               message.channel.send("can't de-activate smart mode")
             } else {
-              smartstatus[guild.id].smartstatus = false
+              smartstatus[Guild.id].smartstatus = false
               message.channel.send("smart mode off!");
             }
            })
         }
 
-  } else if (!guilddata[guild.id].smartstatus) {
+  } else if (!guilddata[Guild.id].smartstatus) {
     if (msglow.startsWith(prefixbot)) {
         if (msglow.includes("help")) {
           message.channel.send("```n-ping\t\t-> Pong!\nn-help\t\t-> Command list\nn-changelog    -> See the change that happened on the bot\nn-jvd\t\t\t-> JoJo vs Dio custom dialogue (incomplete)\nn-purge\t\t-> Snap! half of the chat is gone...```")
@@ -146,7 +146,7 @@ client.on('message', message => {
             message.channel.send("mention 2 members and separate it with ' | ', example : 'n-jvd Jotaro | Dio'")
           } */
     }
-  } else if (guilddata[guild.id].smartstatus) {
+  } else if (guilddata[Guild.id].smartstatus) {
     msgsplit = msglow.split(" ");
     if (myname.includes(msgsplit[msgsplit.length-1])) {
       var name = msgsplit[msgsplit.length-1];
