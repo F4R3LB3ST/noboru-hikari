@@ -33,6 +33,7 @@ client.on('ready', () => {
 
 function Capitalize(string) {
   var fletter = string.charAt().toUpperCase();
+  console.log(fletter);
   var lletter = string.slice(1);
   string =  fletter.concat(lletter);
   return string;
