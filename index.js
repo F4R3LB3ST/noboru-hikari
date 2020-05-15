@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const guild = new Discord.Guild();
 var fs = require('fs');
 const command = require('./command.json');
 const smart = require('./smart.json')
