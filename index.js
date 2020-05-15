@@ -107,7 +107,6 @@ client.on('message', message => {
                     })
               } else {
                   message.channel.send("You don't have the authority to do that")
-                  break;
               }
         } /* else if (msglow.includes("jvd")) {
           var playerdata = msglow.replace("n-jvd ","");
