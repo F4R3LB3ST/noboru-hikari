@@ -91,12 +91,12 @@ client.on('message', message => {
                   const collectoradmin = new Discord.MessageCollector(message.channel, m => m.author.id == message.author.id, { time: 10000 });
                   collectoradmin.on('collect', message => {
                     if (message == 1) {
-                      message.channel.bulkDelete(2)
+                      message.channel.bulkDelete(3);
                       message.channel.bulkDelete(message).then(() => {
                       message.channel.send(`Deleted ${message} message`).then(msg => msg.delete(3000))
                     })
                   } else if (message >= 2) {
-                    message.channel.bulkDelete(2)
+                    message.channel.bulkDelete(3);
                     message.channel.bulkDelete(message).then(() => {
                     message.channel.send(`Deleted ${message} messages`).then(msg => msg.delete(3000))
                     })
