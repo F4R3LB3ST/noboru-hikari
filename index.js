@@ -31,6 +31,12 @@ client.on('ready', () => {
   console.log('I am ready!');
 });
 
+function Capitalize(string) {
+  var fletter = string.charAt().toUpperCase();
+  var lletter = string.slice(1);
+  return fletter.concat(lletter);
+}
+
 client.on('message', message => {
   var sender = message.author.username;
   var msglow = message.content.toLowerCase();
@@ -117,9 +123,7 @@ client.on('message', message => {
     msgsplit = msglow.split(" ");
     if (myname.includes(msgsplit[msgsplit.length-1])) {
       var name = msgsplit[msgsplit.length-1];
-      var fletter = name.charAt(0).toUpperCase();
-      var lletter = name.slice(1);
-      name = fletter.concat(lletter);
+      Capitalize(name);
       var done = false
       for (var a in msgsplit) {
         if (!done && !message.author.bot) {
