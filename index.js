@@ -34,8 +34,8 @@ client.on('ready', () => {
 function Capitalize(string) {
   var fletter = string.charAt().toUpperCase();
   var lletter = string.slice(1);
-  string = fletter.concat(lletter);
-  return string;
+  var result = fletter.concat(lletter);
+  return result;
 }
 
 client.on('message', message => {
