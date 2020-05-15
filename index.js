@@ -2,14 +2,14 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 var fs = require('fs');
 const command = require('./command.json');
-var smart = JSON.parse(fs.readFileSync('./smart.json', 'utf8'));
 const smartread = require('./smart.json')
 const prefix = process.env.prefix;
 const prefixbot = process.env.prefixbot;
 const greet = smart.greet;
 const welcome = command.welcome;
 const pokedesc = command.pokedesc;
-var smartstatus = smart.status;
+const guilddata = require('./guilddata');
+var smartstatus = JSON.parse(fs.readFileSync('./guilddata', 'utf8'));
 const myname = smart.name;
 /*const changelog = new Discord.MessageEmbed()
    .setColor('#0099ff')
@@ -44,30 +44,38 @@ client.on('message', message => {
   const collectorsmart = new Discord.MessageCollector(message.channel, m => m.author.id == message.author.id, { time: 60000 });
 
   if (msglow == "n-smart") {
-    if (!smartstatus) {
-      smartstatus = true
-      fs.writeFile('./userdata.json', JSON.stringify(smart), (err) =>{
+    if (!guilddata[guild.id].smartstatus) {
+      fs.writeFile('./guilddata.json', JSON.stringify(smartstatus), (err) =>{
           if (err) {
             console.error(err)
             message.channel.send("can't activate smart mode")
           } else {
-            smart.status = smartstatus
+            smartstatus[guild.id].smartstatus = true
             message.channel.send("smart mode on!");
          }
        })
      } else if (smartstatus) {
-      smartstatus = false
-      fs.writeFile('./userdata.json', JSON.stringify(smart), (err) =>{
+      fs.writeFile('./guilddata.json', JSON.stringify(smartstatus), (err) =>{
           if (err) {
             console.error(err)
             message.channel.send("can't de-activate smart mode")
           } else {
-            smart.status = smartstatus
+            smartstatus[guild.id].smartstatus = false
             message.channel.send("smart mode off!");
           }
          })
+      } else {
+       fs.writeFile('./guilddata.json', JSON.stringify(smartstatus), (err) =>{
+           if (err) {
+             console.error(err)
+             message.channel.send("can't activate smart mode")
+           } else {
+             smartstatus[guild.id].smartstatus = true
+             message.channel.send("smart mode on!");
+           }
+          })
       }
-  } else if (!smartstatus) {
+  } else if (!guilddata[guild.id].smartstatus) {
     if (msglow.startsWith(prefixbot)) {
         if (msglow.includes("help")) {
           message.channel.send("```n-ping\t\t-> Pong!\nn-help\t\t-> Command list\nn-changelog    -> See the change that happened on the bot\nn-jvd\t\t\t-> JoJo vs Dio custom dialogue (incomplete)\nn-purge\t\t-> Snap! half of the chat is gone...```")
@@ -133,7 +141,7 @@ client.on('message', message => {
             message.channel.send("mention 2 members and separate it with ' | ', example : 'n-jvd Jotaro | Dio'")
           } */
     }
-  } else if (smartstatus) {
+  } else if (guilddata[guild.id].smartstatus) {
     msgsplit = msglow.split(" ");
     if (myname.includes(msgsplit[msgsplit.length-1])) {
       var name = msgsplit[msgsplit.length-1];
