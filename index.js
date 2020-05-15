@@ -35,7 +35,7 @@ function Capitalize(string) {
   var fletter = string.charAt().toUpperCase();
   var lletter = string.slice(1);
   var result = fletter.concat(lletter);
-  return result;
+  return result ;
 }
 
 client.on('message', message => {
@@ -124,7 +124,7 @@ client.on('message', message => {
     msgsplit = msglow.split(" ");
     if (myname.includes(msgsplit[msgsplit.length-1])) {
       var name = msgsplit[msgsplit.length-1];
-      Capitalize(name);
+      name =  Capitalize(name);
       var done = false
       for (var a in msgsplit) {
         if (!done && !message.author.bot) {
