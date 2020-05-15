@@ -45,7 +45,7 @@ client.on('message', message => {
   const collectorsmart = new Discord.MessageCollector(message.channel, m => m.author.id == message.author.id, { time: 60000 });
 
   if (msglow == "n-smart") {
-    if (!guilddata[guild.id].smartstatus == undefined) {
+    if (!guilddata[guild.id] == undefined) {
       if (!guilddata[guild.id].smartstatus) {
         fs.writeFile('./guilddata.json', JSON.stringify(smartstatus), (err) =>{
             if (err) {
