@@ -45,7 +45,29 @@ client.on('message', message => {
   const collectorsmart = new Discord.MessageCollector(message.channel, m => m.author.id == message.author.id, { time: 60000 });
 
   if (msglow == "n-smart") {
-    if (!guilddata[guild.id].smartstatus) {
+    if (!guilddata[guild.id == undefined]) {
+      if (!guilddata[guild.id].smartstatus) {
+        fs.writeFile('./guilddata.json', JSON.stringify(smartstatus), (err) =>{
+            if (err) {
+              console.error(err)
+              message.channel.send("can't activate smart mode")
+            } else {
+              smartstatus[guild.id].smartstatus = true
+              message.channel.send("smart mode on!");
+           }
+         })
+       } else if (smartstatus) {
+        fs.writeFile('./guilddata.json', JSON.stringify(smartstatus), (err) =>{
+            if (err) {
+              console.error(err)
+              message.channel.send("can't de-activate smart mode")
+            } else {
+              smartstatus[guild.id].smartstatus = false
+              message.channel.send("smart mode off!");
+            }
+           })
+        }
+    } else {
       fs.writeFile('./guilddata.json', JSON.stringify(smartstatus), (err) =>{
           if (err) {
             console.error(err)
@@ -55,27 +77,8 @@ client.on('message', message => {
             message.channel.send("smart mode on!");
          }
        })
-     } else if (smartstatus) {
-      fs.writeFile('./guilddata.json', JSON.stringify(smartstatus), (err) =>{
-          if (err) {
-            console.error(err)
-            message.channel.send("can't de-activate smart mode")
-          } else {
-            smartstatus[guild.id].smartstatus = false
-            message.channel.send("smart mode off!");
-          }
-         })
-      } else {
-       fs.writeFile('./guilddata.json', JSON.stringify(smartstatus), (err) =>{
-           if (err) {
-             console.error(err)
-             message.channel.send("can't activate smart mode")
-           } else {
-             smartstatus[guild.id].smartstatus = true
-             message.channel.send("smart mode on!");
-           }
-          })
-      }
+    }
+
   } else if (!guilddata[guild.id].smartstatus) {
     if (msglow.startsWith(prefixbot)) {
         if (msglow.includes("help")) {
