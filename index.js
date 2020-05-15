@@ -9,7 +9,7 @@ const greet = smart.greet;
 const welcome = command.welcome;
 const pokedesc = command.pokedesc;
 const guilddata = require('./guilddata.json');
-var smartstatus = JSON.parse(fs.readFileSync('./guilddata', 'utf8'));
+var smartstatus = JSON.parse(fs.readFileSync('./guilddata.json', 'utf8'));
 const myname = smart.name;
 /*const changelog = new Discord.MessageEmbed()
    .setColor('#0099ff')
