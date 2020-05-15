@@ -39,13 +39,25 @@ function Capitalize(string) {
   return result ;
 }
 
+client.on('guildCreate', guild) => {
+  fs.writeFile('./guilddata.json', JSON.stringify(smartstatus), (err) =>{
+      if (err) {
+        console.error(err)
+        message.channel.send("can't activate smart mode")
+      } else {
+        smartstatus[guild.id] = {
+          smartstatus: false
+        }
+     }
+   })
+}
+
 client.on('message', message => {
   var sender = message.author.username;
   var msglow = message.content.toLowerCase();
   const collectorsmart = new Discord.MessageCollector(message.channel, m => m.author.id == message.author.id, { time: 60000 });
 
   if (msglow == "n-smart") {
-    if (!guilddata[guild.id] == undefined) {
       if (!guilddata[guild.id].smartstatus) {
         fs.writeFile('./guilddata.json', JSON.stringify(smartstatus), (err) =>{
             if (err) {
@@ -67,19 +79,6 @@ client.on('message', message => {
             }
            })
         }
-    } else {
-      fs.writeFile('./guilddata.json', JSON.stringify(smartstatus), (err) =>{
-          if (err) {
-            console.error(err)
-            message.channel.send("can't activate smart mode")
-          } else {
-            smartstatus[guild.id] = {
-              smartstatus: true
-            }
-            message.channel.send("smart mode on!");
-         }
-       })
-    }
 
   } else if (!guilddata[guild.id].smartstatus) {
     if (msglow.startsWith(prefixbot)) {
