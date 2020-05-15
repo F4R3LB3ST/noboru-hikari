@@ -98,8 +98,8 @@ client.on('message', message => {
                     message.channel.bulkDelete(message).then(() => {
                     message.channel.send(`Deleted ${message} messages`).then(msg => msg.delete(3000))
                     })
-                  }   else {
-                    message.channel.send("Are you going to delete thin air... ?");
+                  } else {
+                    message.channel.send("Are you going to delete thin air... ?").then(msg => msg.delete(3000))
                   }
                     })
               } else {
