@@ -101,7 +101,7 @@ client.on('message', message => {
                   } else {
                     message.channel.send("Are you going to delete thin air... ?").then(msg => {
                       msg.delete(3000)
-                      collectoradmin.end();
+                      collectoradmin.stop();
                     })
                   }
                     })
