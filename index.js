@@ -90,10 +90,18 @@ client.on('message', message => {
                   message.channel.send("how many messages you wanna delete ?")
                   const collectoradmin = new Discord.MessageCollector(message.channel, m => m.author.id == message.author.id, { time: 10000 });
                   collectoradmin.on('collect', message => {
+                    if (message == 1) {
                       message.channel.bulkDelete(message).then(() => {
-                      message.channel.send(`Deleted ${message} message(s)`).then(msg => msg.delete(3000))
+                      message.channel.send(`Deleted ${message} message`).then(msg => msg.delete(3000))
                     })
-                  })
+                  } else if (message >= 2) {
+                    message.channel.bulkDelete(message).then(() => {
+                    message.channel.send(`Deleted ${message} messages`).then(msg => msg.delete(3000))
+                    })
+                  }   else {
+                    message.channel.send("Are you going to delete thin air... ?");
+                  }
+                    })
               } else {
                   message.channel.send("You don't have the authority to do that")
               }
