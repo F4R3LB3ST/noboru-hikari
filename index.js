@@ -12,6 +12,15 @@ const pokedesc = command.pokedesc;
 const guilddata = require('./guilddata.json');
 var smartstatus = JSON.parse(fs.readFileSync('./guilddata.json', 'utf8'));
 const myname = smart.name;
+var Dropbox = require('dropbox').Dropbox;
+var dbx = new Dropbox({ accessToken:process.env.dbxapi});
+dbx.filesListFolder({path: ''})
+  .then(function(response) {
+    console.log(response);
+  })
+  .catch(function(error) {
+    console.log(error);
+  });
 /*const changelog = new Discord.MessageEmbed()
    .setColor('#0099ff')
    .setTitle('Changelog')
@@ -24,8 +33,8 @@ const myname = smart.name;
 
 client.on('ready', () => {
   client.user.setStatus('online', "n-help")
-  client.user.setPresence({
-        game: {
+  client.user.setPresence('online',{
+        streaming: {
             name: 'n-help',
         }
     });
@@ -39,7 +48,7 @@ function Capitalize(string) {
   return result ;
 }
 
-client.on('guildCreate', guild => {
+/*client.on('guildCreate', guild => {
   fs.writeFile('./guilddata.json', JSON.stringify(smartstatus), (err) =>{
       if (err) {
         console.error(err)
@@ -50,14 +59,14 @@ client.on('guildCreate', guild => {
         }
      }
    })
-})
+})*/
 
 client.on('message', message => {
   var sender = message.author.username;
   var msglow = message.content.toLowerCase();
   const collectorsmart = new Discord.MessageCollector(message.channel, m => m.author.id == message.author.id, { time: 60000 });
 
-  if (msglow == "n-smart") {
+  /*if (msglow == "n-smart") {
       if (!guilddata[Guild.id].smartstatus) {
         fs.writeFile('./guilddata.json', JSON.stringify(smartstatus), (err) =>{
             if (err) {
@@ -81,7 +90,7 @@ client.on('message', message => {
         }
 
   } else if (!guilddata[Guild.id].smartstatus) {
-    if (msglow.startsWith(prefixbot)) {
+    */if (msglow.startsWith(prefixbot)) {
         if (msglow.includes("help")) {
           message.channel.send("```n-ping\t\t-> Pong!\nn-help\t\t-> Command list\nn-changelog    -> See the change that happened on the bot\nn-jvd\t\t\t-> JoJo vs Dio custom dialogue (incomplete)\nn-purge\t\t-> Snap! half of the chat is gone...```")
         } else if (msglow.includes("ping")) {
@@ -146,7 +155,7 @@ client.on('message', message => {
             message.channel.send("mention 2 members and separate it with ' | ', example : 'n-jvd Jotaro | Dio'")
           } */
     }
-  } else if (guilddata[Guild.id].smartstatus) {
+  /*} else if (guilddata[Guild.id].smartstatus) {
     msgsplit = msglow.split(" ");
     if (myname.includes(msgsplit[msgsplit.length-1])) {
       var name = msgsplit[msgsplit.length-1];
@@ -226,11 +235,11 @@ client.on('message', message => {
         }
       }
     }
-}
+}*/
 })
 
 client.on('guildMemberAdd', member => {
-  const channel = member.guild.channels.find(ch => ch.name === 'member-log');
+  const channel = member.guild.channels.find(ch => ch.name == 'member-log' || ch.name == 'intro');
   if (!channel) return;
   channel.send(eval(welcome[Math.floor(Math.random() * 4)]));
 })
@@ -238,10 +247,6 @@ client.on('guildMemberAdd', member => {
 
 
 client.login(process.env.token);
-
-
-
-
 
 /*Dio:	Kakyoin no yatsu mo, sude ni shimatsu shite yatta so
 	Polnaref wa dokozo ni hison de iru na, hah, do demo ii ga na
