@@ -1,7 +1,8 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const Guild = new Discord.Guild();
-var fs = require('fs');
+const fs = require('fs');
+const fetch = require("node-fetch");
 const command = require('./command.json');
 const smart = require('./smart.json')
 const prefix = process.env.prefix;
